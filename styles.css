@@ -52,7 +52,7 @@ section {
    ════════════════════════════════════════════════ */
 
 nav h1 a {
-  background: url("logo_paraseguro_RGB-02.svg") no-repeat;
+  background: url("files/1x/logo_paraseguro_RGB-02.svg") no-repeat;
   left: 1rem;
   background-size: auto 35px;
   position: relative;
@@ -1205,7 +1205,7 @@ div.inner {
 }
 
 footer h1 a {
-  background: url(paraseguro_negativo.svg) no-repeat;
+  background: url(files/1x/paraseguro_negativo.svg) no-repeat;
   background-size: auto 32px;
   position: relative;
   overflow: hidden;
@@ -1690,6 +1690,16 @@ footer h1 a {
   body {
     padding: 0 6px;
   }
+  section.hero {
+      margin:30px 28px 0px 28px;
+  }
+  .marquee-wrap {
+      margin:0px 28px 0px 28px;
+  }
+
+  .hero{
+    min-height: 52vh;
+  }
 
   .hero-left {
     padding: 52px 28px;
@@ -1714,7 +1724,8 @@ footer h1 a {
   }
 
   .conceito {
-    padding: 52px 28px;
+    margin: 52px 28px;
+    padding: 44px 22px;
   }
 
   .conceito-title {
@@ -1731,6 +1742,7 @@ footer h1 a {
 
   .how-section {
     padding: 32px 28px;
+    margin: 0px 28px 0px 28px;
   }
 
   .how-section-2 {
@@ -1740,6 +1752,7 @@ footer h1 a {
 
   .areas-section {
     padding: 56px 28px;
+    margin: 0px 28px 0px 28px;
   }
 
   .areas-grid {
