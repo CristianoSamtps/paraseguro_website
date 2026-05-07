@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Paraseguro — Redesign Mockup</title>
+  <title>Paraseguro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="styles.css">
   <link
@@ -14,6 +14,20 @@
 </head>
 
 <body>
+
+  <!-- ═══════ SCROLL PROTECTION INDICATOR ═══════ -->
+  <aside class="scroll-shield" id="scrollShield" aria-hidden="true">
+    <span class="scroll-shield-label scroll-shield-label-top">Sem<br>proteção</span>
+    <div class="scroll-shield-track">
+      <div class="scroll-shield-fill" id="scrollShieldFill"></div>
+      <div class="scroll-shield-marker" id="scrollShieldMarker">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+      </div>
+    </div>
+    <span class="scroll-shield-label scroll-shield-label-bottom">Protegido</span>
+  </aside>
 
   <!-- ═══════ NAV ═══════ -->
   <nav class="nav">
@@ -27,7 +41,6 @@
         <li><a href="#">Conceito</a></li>
         <li><a href="#">Observatório</a></li>
         <li><a href="#">Recrutamento</a></li>
-        <li><a href="#">Recrutamento</a></li>
       </ul>
       <div class="nav-actions">
         <a href="#" class="nav-assist" aria-label="Pedir assistência 24 horas">
@@ -36,7 +49,7 @@
           </svg>
           <span class="nav-assist-text">Assistência <strong>24h</strong></span>
         </a>
-        <button class="nav-cta">ESCOLHE O TEU PARASEGURO</button>
+        <a href="planos.html" class="nav-cta">ESCOLHE O TEU PARASEGURO</a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu">
         <span></span>
@@ -51,7 +64,7 @@
         <li><a href="#">Recrutamento</a></li>
       </ul>
       <div class="nav-mobile-actions">
-        <button class="nav-cta">ESCOLHE O TEU PARASEGURO</button>
+        <a href="planos.html" class="nav-cta">ESCOLHE O TEU PARASEGURO</a>
         <a href="#" class="nav-assist nav-assist-mobile" aria-label="Pedir assistência 24 horas">
           <svg class="nav-assist-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -71,11 +84,12 @@
       </div>
       <h1 class="hero-title">O seguro não decide</h1>
       <span class="hero-title-accent">por ti.</span>
+      <p class="hero-subhead">Geriamos o teu sinistro do início ao fim — peritos próprios, prazos cumpridos, indemnizações sem cortes.</p>
       <p class="hero-desc">Quando tens um sinistro, a seguradora gere tudo em seu favor. O paraseguro retira-lhe esse
         controlo — e garante que não perdes aquilo a que tens direito.</p>
       <div class="hero-actions">
-        <button class="btn-yellow">Efeito paraseguro</button>
-        <button class="btn-ghost">Como funciona</button>
+        <button class="btn-yellow">Ver os planos</button>
+        <button class="btn-ghost">Como funciona em 3 passos</button>
       </div>
     </div>
     <div class="hero-right">
@@ -136,24 +150,6 @@
     </div>
   </div>
 
-  <!-- ═══════ CONCEITO ═══════ -->
-  <section class="conceito">
-    <div class="section-eyebrow"><span class="badge">CONCEITO</span></div>
-    <div class="conceito-grid">
-      <div>
-        <h2 class="conceito-title">A seguradora <br>defende-se.<br /><em>Quem te defende a ti?</em></h2>
-      </div>
-      <div>
-        <p class="conceito-body">Num sinistro, a seguradora controla os peritos, os prazos e o resultado — sempre em seu
-          favor. A paraseguro <strong>avoca a gestão do processo</strong>, retirando-lhe o controlo hegemónico para que
-          não percas nem um cêntimo a que tens direito.</p>
-        <p class="conceito-body">Um conceito inovador que assenta automaticamente sobre as responsabilidades vigentes —
-          sem que o seguro te prive, arbitrariamente, de nada.</p>
-        <div class="section-link">Saber mais sobre o conceito</div>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══════ VERSUS ═══════ -->
   <section class="versus">
     <div class="section-eyebrow"><span class="badge">A diferença</span></div>
@@ -191,6 +187,22 @@
           <li>Proteção integral do teu património</li>
           <li>Cobertura completa: saúde, crédito e justiça</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CONCEITO ═══════ -->
+  <section class="conceito">
+    <div class="section-eyebrow"><span class="badge">CONCEITO</span></div>
+    <div class="conceito-grid">
+      <div>
+        <h2 class="conceito-title">A seguradora <br>defende-se.<br /><em>Quem te defende a ti?</em></h2>
+      </div>
+      <div>
+        <p class="conceito-body">Num sinistro, a seguradora controla os peritos, os prazos e o resultado — sempre em seu
+          favor. A paraseguro <strong>avoca a gestão do processo</strong>, retirando-lhe o controlo hegemónico para que
+          não percas nem um cêntimo a que tens direito.</p>
+        <div class="section-link">Saber mais sobre o conceito</div>
       </div>
     </div>
   </section>
@@ -401,20 +413,7 @@
 
     </div>
   </footer>
-  <script>
-    const hamburger = document.getElementById('navHamburger');
-    const mobileMenu = document.getElementById('navMobile');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    document.querySelectorAll('.nav-mobile-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-      });
-    });
-  </script>
+  <script src="index.js"></script>
 </body>
 
 </html>
