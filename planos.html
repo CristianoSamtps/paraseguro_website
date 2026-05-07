@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paraseguro — Planos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="page-planos">
+
+  <!-- ═══════ SCROLL PROTECTION INDICATOR ═══════ -->
+  <aside class="scroll-shield" id="scrollShield" aria-hidden="true">
+    <span class="scroll-shield-label scroll-shield-label-top">Sem<br>proteção</span>
+    <div class="scroll-shield-track">
+      <div class="scroll-shield-fill" id="scrollShieldFill"></div>
+      <div class="scroll-shield-marker" id="scrollShieldMarker">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+      </div>
+    </div>
+    <span class="scroll-shield-label scroll-shield-label-bottom">Protegido</span>
+  </aside>
+
+  <!-- ═══════ NAV ═══════ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-logo">
+          <h1><a href="index.html">PARASEGURO</a></h1>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#conceito">Conceito</a></li>
+        <li><a href="index.html">Observatório</a></li>
+        <li><a href="planos.html" class="active">Planos</a></li>
+        <li><a href="index.html">Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" class="nav-assist" aria-label="Pedir assistência 24 horas">
+          <svg class="nav-assist-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span class="nav-assist-text">Assistência <strong>24h</strong></span>
+        </a>
+        <a href="#simulador" class="nav-cta">SIMULAR PREÇO</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <ul class="nav-mobile-links">
+        <li><a href="index.html#conceito">Conceito</a></li>
+        <li><a href="index.html">Observatório</a></li>
+        <li><a href="planos.html">Planos</a></li>
+      </ul>
+      <div class="nav-mobile-actions">
+        <a href="#simulador" class="nav-cta">SIMULAR PREÇO</a>
+        <a href="#" class="nav-assist nav-assist-mobile" aria-label="Pedir assistência 24 horas">
+          <svg class="nav-assist-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span class="nav-assist-text">Assistência <strong>24h</strong></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section class="planos-hero">
+    <div class="planos-hero-inner">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span>Escolhe o teu paraseguro</span>
+      </div>
+      <h1 class="planos-hero-title">Três níveis. <span class="planos-hero-title-accent">Uma só missão.</span></h1>
+      <p class="planos-hero-subhead">Protege a tua família por menos de <strong>€1 por dia</strong>. Os filhos e dependentes entram sem pagar nada.</p>
+      <div class="planos-hero-actions">
+        <a href="#planos" class="btn-yellow">Comparar planos</a>
+        <a href="#simulador" class="btn-ghost">Simular o meu preço</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PLANOS GRID ═══════ -->
+  <section class="planos" id="planos">
+    <div class="section-eyebrow"><span class="badge">Planos</span></div>
+    <h2 class="section-title">Escolhe o nível de <em>proteção</em>.</h2>
+    <p class="planos-intro">Todos os planos incluem assistência permanente, gestão integral do sinistro e cobertura familiar. Escolhes apenas a profundidade.</p>
+
+    <div class="planos-grid">
+
+      <!-- ESSENTIAL -->
+      <article class="plano-card">
+        <header class="plano-head">
+          <div class="plano-shield">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="plano-name">essential</h3>
+          <p class="plano-tag">O básico bem feito</p>
+        </header>
+        <div class="plano-price">
+          <span class="plano-price-currency">€</span>
+          <span class="plano-price-value">0,60</span>
+          <span class="plano-price-unit">/dia</span>
+        </div>
+        <p class="plano-price-note">por família · €18/mês</p>
+        <a href="#simulador" class="plano-btn">Aderir ao essential</a>
+        <ul class="plano-features">
+          <li><span class="plano-feat-cat">Saúde</span>2.ª opinião clínica</li>
+          <li><span class="plano-feat-cat">Engenharia</span>2.ª opinião técnica</li>
+          <li><span class="plano-feat-cat">Crédito</span>Cashback da taxa de adesão</li>
+          <li><span class="plano-feat-cat">Justiça</span>Juristas, taxas e robustecimento da prova</li>
+          <li><span class="plano-feat-cat">Proteção social</span>Moratória em incapacidade certificada</li>
+          <li><span class="plano-feat-cat">Qualidade</span>Escrutínio independente da assistência</li>
+        </ul>
+      </article>
+
+      <!-- SMART (highlighted) -->
+      <article class="plano-card plano-card-featured">
+        <div class="plano-ribbon">Mais escolhido</div>
+        <header class="plano-head">
+          <div class="plano-shield">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3 class="plano-name">smart</h3>
+          <p class="plano-tag">Equilíbrio entre cobertura e preço</p>
+        </header>
+        <div class="plano-price">
+          <span class="plano-price-currency">€</span>
+          <span class="plano-price-value">0,70</span>
+          <span class="plano-price-unit">/dia</span>
+        </div>
+        <p class="plano-price-note">por família · €21/mês</p>
+        <a href="#simulador" class="plano-btn plano-btn-primary">Aderir ao smart</a>
+        <ul class="plano-features">
+          <li><span class="plano-feat-cat">Saúde</span>Rede paraseguro de cuidados diferenciados + monitorização</li>
+          <li><span class="plano-feat-cat">Engenharia</span>Rede de reparação + monitorização dos trabalhos</li>
+          <li><span class="plano-feat-cat">Crédito</span>Cashback + acesso a fundos de carência</li>
+          <li><span class="plano-feat-cat">Justiça</span>Patrocínio jurídico completo, com tudo incluído</li>
+          <li><span class="plano-feat-cat">Proteção social</span>Moratória em incapacidade certificada</li>
+          <li><span class="plano-feat-cat">Qualidade</span>Escrutínio independente da assistência</li>
+        </ul>
+      </article>
+
+      <!-- PREMIUM -->
+      <article class="plano-card">
+        <header class="plano-head">
+          <div class="plano-shield">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 22l-6-4-6 4 1.5-8.5L2 9h7z"/></svg>
+          </div>
+          <h3 class="plano-name">premium</h3>
+          <p class="plano-tag">Proteção sem reservas</p>
+        </header>
+        <div class="plano-price">
+          <span class="plano-price-currency">€</span>
+          <span class="plano-price-value">1,00</span>
+          <span class="plano-price-unit">/dia</span>
+        </div>
+        <p class="plano-price-note">por família · €30/mês</p>
+        <a href="#simulador" class="plano-btn">Aderir ao premium</a>
+        <ul class="plano-features">
+          <li><span class="plano-feat-cat">Saúde</span>Rede paraseguro de cuidados diferenciados + monitorização</li>
+          <li><span class="plano-feat-cat">Engenharia</span>Rede de reparação + monitorização dos trabalhos</li>
+          <li><span class="plano-feat-cat">Crédito</span><strong>Adiantamento</strong> de fundos, isento de encargos</li>
+          <li><span class="plano-feat-cat">Justiça</span>Patrocínio jurídico completo, com tudo incluído</li>
+          <li><span class="plano-feat-cat">Proteção social</span>Moratória + <strong>perdão de dívida</strong> e atenuação do constrangimento</li>
+          <li><span class="plano-feat-cat">Garantia</span><strong>Indemnização/compensação</strong> no final do processo</li>
+          <li><span class="plano-feat-cat">Qualidade</span>Escrutínio independente da assistência</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <p class="planos-footnote">Os filhos e dependentes incluídos no agregado familiar não pagam — proteção individual e coletiva ao mesmo preço.</p>
+  </section>
+
+  <!-- ═══════ COMPARAÇÃO RÁPIDA ═══════ -->
+  <section class="planos-compare">
+    <div class="section-eyebrow"><span class="badge">Comparação rápida</span></div>
+    <h2 class="section-title">O que muda <em>de um plano para outro</em>.</h2>
+
+    <div class="compare-table">
+      <div class="compare-row compare-head">
+        <div class="compare-cell compare-label"></div>
+        <div class="compare-cell">essential</div>
+        <div class="compare-cell">smart</div>
+        <div class="compare-cell">premium</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-label">Saúde — rede paraseguro</div>
+        <div class="compare-cell"><span class="x">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-label">Engenharia — rede de reparação</div>
+        <div class="compare-cell"><span class="x">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-label">Adiantamento de fundos sem encargos</div>
+        <div class="compare-cell"><span class="x">—</span></div>
+        <div class="compare-cell"><span class="x">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-label">Perdão de dívida em incapacidade</div>
+        <div class="compare-cell"><span class="x">—</span></div>
+        <div class="compare-cell"><span class="x">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-label">Indemnização final</div>
+        <div class="compare-cell"><span class="x">—</span></div>
+        <div class="compare-cell"><span class="x">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-label">Patrocínio jurídico completo</div>
+        <div class="compare-cell"><span class="check-faint">parcial</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-label">Assistência 24h e escrutínio independente</div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ SIMULADOR ═══════ -->
+  <section class="sim-section" id="simulador">
+    <div class="sim-inner">
+      <div class="sim-left">
+        <div class="section-eyebrow"><span class="badge">Simulador de preços</span></div>
+        <h2 class="sim-title">A proteção dos filhos <em>não tem preço.</em></h2>
+        <p class="sim-sub">Escolhe o plano e o nº de pessoas no agregado. Os descendentes e dependentes incluídos não pagam.</p>
+
+        <div class="sim-field">
+          <label class="sim-label">1. Escolhe o paraseguro</label>
+          <div class="sim-plans">
+            <button type="button" class="sim-plan" data-plan="essential" data-price="0.60">
+              <span class="sim-plan-name">essential</span>
+              <span class="sim-plan-price">€0,60/dia</span>
+            </button>
+            <button type="button" class="sim-plan is-active" data-plan="smart" data-price="0.70">
+              <span class="sim-plan-name">smart</span>
+              <span class="sim-plan-price">€0,70/dia</span>
+            </button>
+            <button type="button" class="sim-plan" data-plan="premium" data-price="1.00">
+              <span class="sim-plan-name">premium</span>
+              <span class="sim-plan-price">€1,00/dia</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="sim-counters">
+          <div class="sim-field">
+            <label class="sim-label">2. Total de pessoas no agregado</label>
+            <div class="sim-counter">
+              <button type="button" class="sim-counter-btn" data-action="dec" data-target="total" aria-label="Diminuir">−</button>
+              <span class="sim-counter-value" id="simTotal">4</span>
+              <button type="button" class="sim-counter-btn" data-action="inc" data-target="total" aria-label="Aumentar">+</button>
+            </div>
+          </div>
+          <div class="sim-field">
+            <label class="sim-label">3. Descendentes e/ou dependentes</label>
+            <div class="sim-counter">
+              <button type="button" class="sim-counter-btn" data-action="dec" data-target="deps" aria-label="Diminuir">−</button>
+              <span class="sim-counter-value" id="simDeps">2</span>
+              <button type="button" class="sim-counter-btn" data-action="inc" data-target="deps" aria-label="Aumentar">+</button>
+            </div>
+            <span class="sim-hint">Não pagam — incluídos no agregado.</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sim-result">
+        <span class="sim-result-tag">Estimativa mensal</span>
+        <div class="sim-result-main">
+          <span class="sim-result-currency">€</span>
+          <span class="sim-result-value" id="simMonthly">21,00</span>
+        </div>
+        <div class="sim-result-divider"></div>
+        <span class="sim-result-perlabel">Por pessoa / mês</span>
+        <div class="sim-result-per">€<span id="simPer">5,25</span></div>
+        <a href="#" class="sim-result-cta">Aderir agora →</a>
+        <p class="sim-result-fine">Acomoda proteção individual e coletiva, observando o conceito de agregado familiar doméstico.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer>
+    <div class="inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <h1><a href="index.html">PARASEGURO</a></h1>
+        </div>
+        <button class="footer-scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+      </div>
+      <div class="footer-mid">
+        <div class="footer-links">
+          <a href="index.html">Institucional</a>
+          <a href="#">Contacto</a>
+        </div>
+        <button class="footer-cta-btn">ACIONAR A MINHA ASSISTÊNCIA</button>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <div class="footer-legal-links">
+            <a href="#">Termos e Condições de Uso</a>
+            <a href="#">Observatório</a>
+            <a href="#">Provedoria</a>
+            <a href="#">Diferendos de Consumo</a>
+            <a href="#">Livro de Reclamações</a>
+            <a href="#">Parceiros</a>
+          </div>
+          <div class="footer-copy">2026 © PARASEGURO. Todos os direitos reservados.</div>
+        </div>
+        <div class="footer-gsb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <div class="footer-gsb-text">
+            <span class="gsb-brand">Google</span>
+            <span class="gsb-sub">Safe Browsing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
