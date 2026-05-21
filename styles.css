@@ -270,14 +270,14 @@ nav h1 a {
     linear-gradient(135deg, var(--emerald), var(--emerald-dark)); */
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: calc(var(--spacing) * 16);
+  gap: calc(var(--spacing) * 12);
   min-height: 600px;
   margin-top: 40px;
   /* border-radius: 20px 20px 0px 0px; */
 }
 
 .hero-left {
-  padding: 0px 0px;
+  padding-left: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -412,14 +412,14 @@ nav h1 a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 40px
+  border-radius: 30px;
 }
 
 .hero-right-blend {
   /* background: rgba(0, 0, 0, 0.1); */
   position: relative;
-  padding: 80px 80px 80px 60px;
-  border-radius: 28px 158px 0px 0px;
+  /* padding: 80px 80px 80px 60px; */
+  /* border-radius: 28px 158px 0px 0px; */
 }
 
 .hero-shield {
@@ -481,6 +481,7 @@ nav h1 a {
   flex-direction: column;
   gap: var(--gap);
   margin-top: 40px;
+  padding: 0px 20px;
 }
 
 .hero-proof-item {
@@ -488,6 +489,13 @@ nav h1 a {
   background: #f0f9fff5 ;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 15px;
+}
+
+.hero-proof-item .title{
+  font-size: 14px;
+  font-weight: 500;
+  color:var(--grey) 40%;
+  margin-bottom: 4px;
 }
 
 .hero-proof-icon {
@@ -1658,12 +1666,12 @@ footer h1 a {
     min-height: 560px;
   }
   .hero-right-blend{
-    padding: 10px 80px 80px 60px;
+    /* padding: 10px 80px 80px 60px; */
   }
 
-  .hero-left {
-    padding: 60px 56px;
-  }
+  /* .hero-left {
+    padding: 60px 0px;
+  } */
 
   .hero-title,
   .hero-title-accent {
