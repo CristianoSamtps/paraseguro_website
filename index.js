@@ -15,8 +15,18 @@ document.querySelectorAll('.nav-mobile-links a').forEach(link => {
 const scrollShield = document.getElementById('scrollShield');
 const scrollShieldFill = document.getElementById('scrollShieldFill');
 const scrollShieldMarker = document.getElementById('scrollShieldMarker');
+const scrollShieldFooter = document.querySelector('footer');
+const SCROLL_SHIELD_FOOTER_MARGIN = 60; // px de folga entre o shield e o topo do footer
 
 function updateScrollShield() {
+    // Calcular o ponto de paragem: quando o topo do footer entra na zona inferior do shield
+    const footerTopInViewport = scrollShieldFooter
+        ? scrollShieldFooter.getBoundingClientRect().top
+        : Infinity;
+    const shieldBottomInViewport = scrollShield.getBoundingClientRect().bottom;
+    const overlapsFooter = footerTopInViewport - SCROLL_SHIELD_FOOTER_MARGIN < shieldBottomInViewport;
+
+    // Progresso normal baseado no scroll do documento
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / docHeight)) : 0;
     const pct = (progress * 100).toFixed(2);
@@ -24,7 +34,8 @@ function updateScrollShield() {
     scrollShieldFill.style.height = pct + '%';
     scrollShieldMarker.style.top = pct + '%';
 
-    if (window.scrollY > 200) {
+    // Visível só quando passou do topo E o footer ainda não invadiu a zona do shield
+    if (window.scrollY > 200 && !overlapsFooter) {
         scrollShield.classList.add('visible');
     } else {
         scrollShield.classList.remove('visible');
@@ -40,6 +51,37 @@ function updateScrollShield() {
 window.addEventListener('scroll', updateScrollShield, { passive: true });
 window.addEventListener('resize', updateScrollShield);
 updateScrollShield();
+
+// Chat widget
+const chatWidget = document.getElementById('chatWidget');
+const chatBubble = document.getElementById('chatBubble');
+const chatClose = document.getElementById('chatClose');
+const chatPanel = document.getElementById('chatPanel');
+const chatForm = document.getElementById('chatForm');
+
+function setChatOpen(open) {
+    if (!chatWidget) return;
+    chatWidget.classList.toggle('open', open);
+    if (chatBubble) chatBubble.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (chatPanel) chatPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+}
+
+if (chatBubble) chatBubble.addEventListener('click', () => setChatOpen(true));
+if (chatClose) chatClose.addEventListener('click', () => setChatOpen(false));
+if (chatForm) {
+    chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Placeholder: integrar com endpoint real depois
+        chatForm.reset();
+        setChatOpen(false);
+    });
+}
+// Fecha com Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatWidget && chatWidget.classList.contains('open')) {
+        setChatOpen(false);
+    }
+});
 
 // Plans simulator (planos.html)
 const simPlans = document.querySelectorAll('.sim-plan');
