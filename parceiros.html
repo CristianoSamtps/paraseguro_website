@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paraseguro — Parceiros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Componentes partilhados (ver components.js) -->
+  <div id="scroll-shield-slot"></div>
+  <div id="nav-slot"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-inner max-w">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-dot"></div>
+          <span>Área de parceiros</span>
+        </div>
+        <h1 class="page-hero-title">Acede à <em>tua área.</em></h1>
+        <p class="page-hero-sub">Plataforma exclusiva para parceiros: gestão de processos, comissionamento e
+          documentação técnica.</p>
+      </div>
+    </section>
+
+    <section class="page-content max-w">
+      <div class="page-login-grid">
+        <!-- Login -->
+        <form class="page-form page-login">
+          <h2>Iniciar sessão</h2>
+          <label><span>Email</span><input type="email" autocomplete="email" required></label>
+          <label><span>Palavra-passe</span><input type="password" autocomplete="current-password" required></label>
+          <div class="page-login-meta">
+            <label class="page-check">
+              <input type="checkbox"> <span>Manter sessão iniciada</span>
+            </label>
+            <a href="#" class="page-link page-link--sm">Esqueceste-te?</a>
+          </div>
+          <button type="submit" class="btn-yellow">Entrar</button>
+        </form>
+
+        <!-- CTA tornar parceiro -->
+        <aside class="page-card page-card--accent">
+          <span class="page-card-tag">Ainda não és parceiro?</span>
+          <h2>Junta-te à rede paraseguro</h2>
+          <p class="page-lead">Mediadores, peritos e profissionais de saúde, engenharia, crédito e justiça. Trabalha
+            connosco em processos exclusivamente do lado do cliente.</p>
+          <a href="contacto.html" class="page-link">Pedir adesão →</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Componentes partilhados -->
+  <div id="footer-slot"></div>
+  <div id="chat-slot"></div>
+
+  <script src="components.js" defer></script>
+  <script src="index.js" defer></script>
+</body>
+
+</html>

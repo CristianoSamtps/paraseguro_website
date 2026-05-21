@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paraseguro — Contacto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Componentes partilhados (ver components.js) -->
+  <div id="scroll-shield-slot"></div>
+  <div id="nav-slot"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-inner max-w">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-dot"></div>
+          <span>Estamos do teu lado</span>
+        </div>
+        <h1 class="page-hero-title">Falar com a <em>equipa.</em></h1>
+        <p class="page-hero-sub">Responde-te um especialista em menos de 24h. Linha 24/7 para ativação imediata de
+          sinistros.</p>
+      </div>
+    </section>
+
+    <section class="page-content max-w">
+      <div class="contacto-layout">
+        <div class="contacto-cards">
+          <article class="page-card">
+            <h2>Linha de assistência 24h</h2>
+            <p class="page-lead">Para ativar um sinistro ou pedir apoio imediato.</p>
+            <a href="tel:+211 58 21 24" class="page-link">+351 211 58 21 24</a>
+          </article>
+          <article class="page-card">
+            <h2>Email comercial</h2>
+            <p class="page-lead">Para dúvidas sobre planos, parcerias e propostas.</p>
+            <a href="mailto:comercial@paraseguro.pt" class="page-link">comercial@paraseguro.pt</a>
+          </article>
+          <article class="page-card">
+            <h2>Sede</h2>
+            <p class="page-lead">Avenida D. João II, N.52, Piso 0 <br>
+              Parque das Nações, 1990-096 Lisboa</p>
+          </article>
+        </div>
+
+        <!-- Placeholder do formulário — substituir por integração real -->
+        <form class="page-form">
+          <h2>Envia uma mensagem</h2>
+          <label><span>Nome</span><input type="text" required></label>
+          <label><span>Email</span><input type="email" required></label>
+          <label><span>Telefone</span><input type="tel"></label>
+          <label><span>Mensagem</span><textarea rows="5" required></textarea></label>
+          <label class="page-check">
+            <input type="checkbox" required>
+            <span>Concordo com os <a href="termos-condicoes.html">termos e condições</a> de uso.</span>
+          </label>
+          <button type="submit" class="btn-yellow">Enviar mensagem</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Componentes partilhados -->
+  <div id="footer-slot"></div>
+  <div id="chat-slot"></div>
+
+  <script src="components.js" defer></script>
+  <script src="index.js" defer></script>
+</body>
+
+</html>
