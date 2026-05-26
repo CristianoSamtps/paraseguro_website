@@ -95,7 +95,8 @@ const FOOTER_HTML = `
 
       <div class="footer-mid">
         <div class="footer-links">
-          <a href="conceito.html">Conceito</a>
+        <a href="institucional.html">Institucional</a>
+        <a href="conceito.html">Conceito</a>
           <a href="contacto.html">Contacto</a>
           <a href="#">Recrutamento</a>
         </div>
