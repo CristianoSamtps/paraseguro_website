@@ -40,10 +40,42 @@ const NAV_HTML = `
           <h1><a href="index.html">PARASEGURO</a></h1>
         </div>
       </div>
-      <ul class="nav-links">
-        <li><a href="conceito.html">Conceito</a></li>
-        <li><a href="observatorio.html">Observatório</a></li>
-        <li><a href="#">Recrutamento</a></li>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" data-nav-key="index">Início</a></li>
+        <li><a href="conceito.html" data-nav-key="conceito">Conceito</a></li>
+        <li class="nav-has-submenu">
+          <a href="observatorio.html" data-nav-key="observatorio" aria-haspopup="true" aria-expanded="false">
+            <span>Observatório</span>
+            <svg class="nav-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </a>
+          <ul class="nav-submenu" role="menu">
+            <li><a href="observatorio.html#imprensa" role="menuitem">
+              <span class="nav-sub-num">01</span>
+              <span class="nav-sub-text">
+                <strong>Imprensa & Análises</strong>
+                <em>Relatórios, artigos, casos</em>
+              </span>
+            </a></li>
+            <li><a href="observatorio.html#historias" role="menuitem">
+              <span class="nav-sub-num">02</span>
+              <span class="nav-sub-text">
+                <strong>Histórias da comunidade</strong>
+                <em>Testemunhos reais em vídeo</em>
+              </span>
+            </a></li>
+            <li><a href="observatorio.html#partilhar" role="menuitem">
+              <span class="nav-sub-num">03</span>
+              <span class="nav-sub-text">
+                <strong>Partilha a tua história</strong>
+                <em>Submete um testemunho</em>
+              </span>
+            </a></li>
+          </ul>
+        </li>
+        <li><a href="#" data-nav-key="recrutamento">Recrutamento</a></li>
       </ul>
       <div class="nav-actions">
         <a href="contacto.html" class="nav-assist" aria-label="Pedir assistência 24 horas">
@@ -60,9 +92,13 @@ const NAV_HTML = `
     </div>
     <div class="nav-mobile" id="navMobile">
       <ul class="nav-mobile-links">
-        <li><a href="conceito.html">Conceito</a></li>
-        <li><a href="observatorio.html">Observatório</a></li>
-        <li><a href="#">Recrutamento</a></li>
+        <li><a href="index.html" data-nav-key="index">Início</a></li>
+        <li><a href="conceito.html" data-nav-key="conceito">Conceito</a></li>
+        <li><a href="observatorio.html" data-nav-key="observatorio">Observatório</a></li>
+        <li class="nav-mobile-sub"><a href="observatorio.html#imprensa">↳ Imprensa & Análises</a></li>
+        <li class="nav-mobile-sub"><a href="observatorio.html#historias">↳ Histórias da comunidade</a></li>
+        <li class="nav-mobile-sub"><a href="observatorio.html#partilhar">↳ Partilha a tua história</a></li>
+        <li><a href="#" data-nav-key="recrutamento">Recrutamento</a></li>
       </ul>
       <div class="nav-mobile-actions">
         <a href="planos.html" class="nav-cta">ESCOLHE O TEU PARASEGURO</a>
@@ -82,67 +118,111 @@ const NAV_HTML = `
 const FOOTER_HTML = `
   <footer>
     <div class="inner max-w">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <h1><a href="index.html">PARASEGURO</a></h1>
-        </div>
-        <button class="footer-scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="18 15 12 9 6 15"></polyline>
-          </svg>
-        </button>
-      </div>
 
-      <div class="footer-mid">
-        <div class="footer-links">
-        <a href="institucional.html">Institucional</a>
-        <a href="conceito.html">Conceito</a>
-          <a href="contacto.html">Contacto</a>
-          <a href="#">Recrutamento</a>
+      <!-- TOP: brand + columns -->
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <h1><a href="index.html">PARASEGURO</a></h1>
+          </div>
+          <p class="footer-tagline">Especialistas independentes que defendem os teus direitos perante seguradoras, processos e conflitos.</p>
+          <button class="footer-scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+            <span>Voltar ao topo</span>
+          </button>
         </div>
-        <a href="contacto.html" class="footer-cta-btn">ACIONAR A MINHA ASSISTÊNCIA</a>
-      </div>
 
-      <div class="footer-social">
-        <a href="#" class="footer-social-icon" aria-label="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
-        </a>
-        <a href="#" class="footer-social-icon" aria-label="Instagram">
-          <svg viewBox="0 0 24 24">
-            <rect x="2" y="2" width="20" height="20" rx="5" />
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-          </svg>
-        </a>
-        <a href="#" class="footer-social-icon" aria-label="TikTok">
-          <svg viewBox="0 0 24 24">
-            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.12a8.16 8.16 0 0 0 4.77 1.52V7.22a4.85 4.85 0 0 1-1-.53z" />
-          </svg>
-        </a>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Serviços</h4>
+            <ul role="list">
+              <li><a href="planos.html">Planos</a></li>
+              <li><a href="conceito.html">Conceito</a></li>
+              <li><a href="index.html#comoFunciona">Como funciona</a></li>
+              <li><a href="contacto.html">Acionar assistência</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Empresa</h4>
+            <ul role="list">
+              <li><a href="institucional.html">Institucional</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="parceiros.html">Parceiros</a></li>
+              <li><a href="#">Recrutamento</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Recursos</h4>
+            <ul role="list">
+              <li><a href="observatorio.html">Observatório</a></li>
+              <li><a href="provedoria.html">Provedoria</a></li>
+              <li><a href="termos-condicoes.html">Termos & Condições</a></li>
+              <li><a href="http://livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener">Livro de Reclamações</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <hr class="footer-divider">
 
+      <!-- BOTTOM: newsletter + social + legal -->
       <div class="footer-bottom">
-        <div class="footer-bottom-left">
-          <div class="footer-legal-links">
-            <a href="termos-condicoes.html">Termos e Condições</a>
-            <a href="observatorio.html">Observatório</a>
-            <a href="provedoria.html">Provedoria</a>
-            <a href="https://paraseguro.pt/data/fotos/diferendos_de_consumo.jpg">Diferendos de Consumo</a>
-            <a href="http://livroreclamacoes.pt/Inicio/">Livro de Reclamações</a>
-            <a href="parceiros.html">Parceiros</a>
+        <div class="footer-newsletter">
+          <h3 class="footer-newsletter-title">Recebe novidades e estudos</h3>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); this.reset();">
+            <span class="footer-newsletter-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="3"/>
+                <polyline points="3 7 12 13 21 7"/>
+              </svg>
+            </span>
+            <input type="email" placeholder="O teu email" aria-label="Email" required>
+            <button type="submit">
+              <span>Subscrever</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"/>
+                <polyline points="7 7 17 7 17 17"/>
+              </svg>
+            </button>
+          </form>
+          <div class="footer-social" aria-label="Redes sociais">
+            <a href="#" class="footer-social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="footer-social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.34 17.49H5.67V9.92h2.67v7.57zM7 8.75a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1zm11.33 8.74h-2.67v-3.68c0-.88-.02-2-1.22-2-1.22 0-1.41.95-1.41 1.93v3.75H10.36V9.92h2.56v1.03h.04c.36-.68 1.23-1.39 2.54-1.39 2.71 0 3.21 1.78 3.21 4.1v3.83z"/></svg>
+            </a>
+            <a href="#" class="footer-social-icon" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.12a8.16 8.16 0 0 0 4.77 1.52V7.22a4.85 4.85 0 0 1-1-.53z"/></svg>
+            </a>
           </div>
-          <div class="footer-copy">2026 © PARASEGURO. Todos os direitos reservados.</div>
         </div>
-        <div class="footer-gsb">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            <path d="M9 12l2 2 4-4" />
-          </svg>
-          <div class="footer-gsb-text">
-            <span class="gsb-brand">Google</span>
-            <span class="gsb-sub">Safe Browsing</span>
+
+        <div class="footer-legal">
+          <div class="footer-legal-links">
+            <a href="termos-condicoes.html">Política de Cookies</a>
+            <a href="termos-condicoes.html">Termos & Condições</a>
+            <a href="https://paraseguro.pt/data/fotos/diferendos_de_consumo.jpg" target="_blank" rel="noopener">Diferendos de Consumo</a>
+          </div>
+          <div class="footer-copy">© 2026 PARASEGURO. Todos os direitos reservados.</div>
+          <div class="footer-gsb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+            <div class="footer-gsb-text">
+              <span class="gsb-brand">Google</span>
+              <span class="gsb-sub">Safe Browsing</span>
+            </div>
           </div>
         </div>
       </div>
@@ -220,3 +300,24 @@ injectSlot('scroll-shield-slot', SCROLL_SHIELD_HTML);
 injectSlot('nav-slot', NAV_HTML);
 injectSlot('footer-slot', FOOTER_HTML);
 injectSlot('chat-slot', CHAT_HTML);
+
+
+/* ═══════ ACTIVE NAV STATE ═══════
+   Marca o link da página atual com .is-active baseado no pathname.
+   Funciona em todas as páginas porque o nav é o mesmo em todas. */
+
+(function markActiveNav() {
+  // Extrair "chave" da página a partir do pathname
+  const path = window.location.pathname;
+  const file = path.split('/').pop() || 'index.html';
+  let key = file.replace('.html', '');
+  if (!key || key === '' || key === '/') key = 'index';
+
+  // Aplicar .is-active a todos os links com data-nav-key correspondente
+  document.querySelectorAll('[data-nav-key]').forEach(link => {
+    if (link.dataset.navKey === key) {
+      link.classList.add('is-active');
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+})();

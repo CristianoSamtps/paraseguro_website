@@ -26,31 +26,221 @@
           <span>Análise independente</span>
         </div>
         <h1 class="page-hero-title">Observatório <em>do setor segurador.</em></h1>
-        <p class="page-hero-sub">Acompanhamos práticas, decisões e tendências do mercado para informar quem está do
-          lado dos consumidores.</p>
+        <p class="page-hero-sub">Análises, histórias reais e o palco da comunidade — tudo o que o setor preferia que não
+          se ouvisse.</p>
       </div>
     </section>
 
-    <section class="page-content max-w">
-      <div class="page-content-grid">
-        <article class="page-card">
-          <span class="page-card-tag">Relatório</span>
-          <h2>Relatório anual 2025</h2>
-          <p class="page-lead">Análise dos principais conflitos entre seguradoras e consumidores em Portugal.</p>
-          <a href="#" class="page-link">Descarregar PDF →</a>
-        </article>
-        <article class="page-card">
-          <span class="page-card-tag">Artigo</span>
-          <h2>Cláusulas que deves rever</h2>
-          <p class="page-lead">5 áreas dos teus contratos onde a seguradora costuma proteger-se.</p>
-          <a href="#" class="page-link">Ler artigo →</a>
-        </article>
-        <article class="page-card">
-          <span class="page-card-tag">Caso</span>
-          <h2>Caso de estudo: indemnização recuperada</h2>
-          <p class="page-lead">Exemplo prático de um sinistro reavaliado com sucesso.</p>
-          <a href="#" class="page-link">Ler caso →</a>
-        </article>
+    <!-- ═══════ TABS ═══════ -->
+    <div class="obs-tabs-wrap max-w">
+      <nav class="obs-tabs" role="tablist" aria-label="Secções do Observatório">
+        <button class="obs-tab is-active" type="button" role="tab" aria-selected="true" data-tab="imprensa"
+          id="tab-imprensa" aria-controls="panel-imprensa">
+          <span class="obs-tab-num">01</span>
+          <span class="obs-tab-label">Imprensa & Análises</span>
+        </button>
+        <button class="obs-tab" type="button" role="tab" aria-selected="false" data-tab="historias" id="tab-historias"
+          aria-controls="panel-historias">
+          <span class="obs-tab-num">02</span>
+          <span class="obs-tab-label">Histórias da comunidade</span>
+        </button>
+        <button class="obs-tab" type="button" role="tab" aria-selected="false" data-tab="partilhar" id="tab-partilhar"
+          aria-controls="panel-partilhar">
+          <span class="obs-tab-num">03</span>
+          <span class="obs-tab-label">Partilha a tua história</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- ═══════ PANEL: IMPRENSA ═══════ -->
+    <section class="obs-panel is-active" id="panel-imprensa" role="tabpanel" aria-labelledby="tab-imprensa">
+      <div class="page-content max-w">
+        <div class="obs-section-eyebrow">REFÉM DO SEGURO, HIPOTECAS O FUTURO</div>
+        <h2 class="obs-section-title">A seguradora a decidir <em>por ti.</em></h2>
+        <p class="obs-section-lead">Acompanhamos práticas, decisões e tendências do mercado para informar quem está do
+          lado dos consumidores.</p>
+
+        <div class="page-content-grid">
+          <article class="page-card">
+            <span class="page-card-tag">Relatório</span>
+            <h2>Relatório anual 2025</h2>
+            <p class="page-lead">Análise dos principais conflitos entre seguradoras e consumidores em Portugal.</p>
+            <a href="#" class="page-link">Descarregar PDF →</a>
+          </article>
+          <article class="page-card">
+            <span class="page-card-tag">Artigo</span>
+            <h2>Cláusulas que deves rever</h2>
+            <p class="page-lead">5 áreas dos teus contratos onde a seguradora costuma proteger-se primeiro.</p>
+            <a href="#" class="page-link">Ler artigo →</a>
+          </article>
+          <article class="page-card">
+            <span class="page-card-tag">Caso</span>
+            <h2>Caso de estudo: indemnização recuperada</h2>
+            <p class="page-lead">Exemplo prático de um sinistro reavaliado com sucesso e o que se aprendeu.</p>
+            <a href="#" class="page-link">Ler caso →</a>
+          </article>
+          <article class="page-card">
+            <span class="page-card-tag">Revista de Imprensa</span>
+            <h2>Testemunho TVI: a seguradora foge a tudo</h2>
+            <p class="page-lead">Reportagem televisiva sobre um sinistro automóvel grave que ficou meses sem resposta.
+            </p>
+            <a href="#" class="page-link">Ver reportagem →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ PANEL: HISTÓRIAS ═══════ -->
+    <section class="obs-panel" id="panel-historias" role="tabpanel" aria-labelledby="tab-historias" hidden>
+      <div class="page-content max-w">
+        <div class="obs-section-eyebrow">REPOSITÓRIO · ORA ESCUTA</div>
+        <h2 class="obs-section-title">Silêncio, <em>que se vai contar o fado.</em></h2>
+        <p class="obs-section-lead">Estas são as histórias de quem confiou na seguradora e ficou ao abandono — partilhadas
+          pelos próprios.</p>
+
+        <div class="stories-grid">
+           <a class="story-card" href="https://sic.pt/programas/julia/videos/2024-07-19-como-e-que-e-possivel---convidada-do-julia-indignada-com-esclarecimento-do-hospital-sobre-queda-durante-sessao-de-fisioterapia" target="_blank" rel="noopener noreferrer"
+            aria-label="Ver vídeo do testemunho da Cândida (abre em nova janela)">
+            <div class="story-card-media" style="background-image:url('files/fadodaIsa.jpg')">
+              <div class="story-card-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="8 5 19 12 8 19 8 5" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="story-card-title">O fado da Isa</h3>
+            <p class="story-card-text">A recuperar de um acidente de carro, sofre uma queda numa sessão de fisioterapia que o seguro alega ter sido acidente pessoal.</p>
+          </a>
+          <a class="story-card" href="https://www.cmjornal.pt/cmtv/videos/detalhe/jovem-perde-as-maos-em-acidente-de-trabalho" target="_blank" rel="noopener noreferrer"
+            aria-label="Ver vídeo do testemunho da Cândida (abre em nova janela)">
+            <div class="story-card-media" style="background-image:url('files/fadodoMiguel.jpg')">
+              <div class="story-card-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="8 5 19 12 8 19 8 5" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="story-card-title">O fado do Miguel</h3>
+            <p class="story-card-text">Jovem perde as mãos em acidente de trabalho.</p>
+          </a>
+          <a class="story-card" href="https://sicnoticias.pt/pais/2025-11-22-video-trabalhador-da-construcao-civil-acusa-empresa-de-despedimento-ilegal-apos-acidente-de-trabalho-ad9356f0" target="_blank" rel="noopener noreferrer"
+            aria-label="Ver vídeo do testemunho da Cândida (abre em nova janela)">
+            <div class="story-card-media" style="background-image:url('files/fadodoEliseu.jpg')">
+              <div class="story-card-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="8 5 19 12 8 19 8 5" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="story-card-title">O fado do Eliseu</h3>
+            <p class="story-card-text">Cândida foi vítima de um acidente mas não recebeu indemnização da Soflusa.</p>
+          </a>
+          <a class="story-card" href="https://tviplayer.iol.pt/programa/acontece-aos-melhores/604661fd0cf2b0de20234e4e/video/61520f350cf246344ebd9101" target="_blank" rel="noopener noreferrer"
+            aria-label="Ver vídeo do testemunho da Cândida (abre em nova janela)">
+            <div class="story-card-media" style="background-image:url('files/fadodaCandida.jpg')">
+              <div class="story-card-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="8 5 19 12 8 19 8 5" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="story-card-title">O fado da Cândida</h3>
+            <p class="story-card-text">Cândida foi vítima de um acidente mas não recebeu indemnização da Soflusa.</p>
+          </a>
+          <a class="story-card" href="https://tviplayer.iol.pt/programa/dois-as-10/5fe219a40cf2cc9de7ef9590/video/65b25cba0cf23250d71b6b81?t=1:11:10" target="_blank" rel="noopener noreferrer"
+            aria-label="Ver vídeo do testemunho do Miguel (abre em nova janela)">
+            <div class="story-card-media" style="background-image:url('files/fadodohugo.jpg')">
+              <div class="story-card-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="8 5 19 12 8 19 8 5" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="story-card-title">O fado do Hugo</h3>
+            <p class="story-card-text">A vida trágica de Hugo após perder um pé, uma mão e ficou com um braço paralisado.</p>
+          </a>
+          <a class="story-card" href="https://tvi.iol.pt/videos/goucha-a-luta-dos-pais-pela-sobrevivencia-do-filho-apos-tragico-acidente/6581e9a30cf265bc968e2d1e" target="_blank" rel="noopener noreferrer"
+            aria-label="Ver vídeo do testemunho do Eliseu (abre em nova janela)">
+            <div class="story-card-media" style="background-image:url('files/fadodoGoncalo.jpg')">
+              <div class="story-card-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="8 5 19 12 8 19 8 5" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="story-card-title">O fado do Gonçalo</h3>
+            <p class="story-card-text">A luta dos pais pela sobrevivência do filho após trágico acidente.</p>
+          </a>
+        </div>
+
+        <div class="stories-cta">
+          <p>Tens uma história semelhante para contar?</p>
+          <button type="button" class="btn-yellow" onclick="document.getElementById('tab-partilhar').click(); document.getElementById('panel-partilhar').scrollIntoView({behavior:'smooth', block:'start'});">
+            Partilha a tua história
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ PANEL: PARTILHAR ═══════ -->
+    <section class="obs-panel" id="panel-partilhar" role="tabpanel" aria-labelledby="tab-partilhar" hidden>
+      <div class="page-content max-w">
+        <div class="page-content-grid page-content-grid--share">
+          <aside class="share-aside">
+            <div class="obs-section-eyebrow">VEM DAÍ · O PALCO É POR AQUI</div>
+            <h2 class="obs-section-title">Partilha a tua história. <em>Ganha um Plano de Proteção.</em></h2>
+            <p class="obs-section-lead">A narrativa mais impactante recebe, semanalmente, <strong>um ano de proteção
+                grátis</strong> para toda a família.</p>
+            <ul class="share-rules">
+              <li>Conta como aconteceu e o que passaste</li>
+              <li>Junta um vídeo curto (até 15 min)</li>
+              <li>Compromisso de honra: informação verdadeira</li>
+            </ul>
+          </aside>
+
+          <form class="page-form share-form" onsubmit="event.preventDefault(); alert('Submissão registada (placeholder).'); this.reset();">
+            <div class="form-row">
+              <label>
+                <span>Nome</span>
+                <input type="text" name="nome" placeholder="O teu nome completo" required>
+              </label>
+            </div>
+            <div class="form-row form-row--split">
+              <label>
+                <span>Telefone</span>
+                <input type="tel" name="telefone" placeholder="9XX XXX XXX" required>
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" placeholder="o.teu@email.pt" required>
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                <span>URL do vídeo <em>(YouTube ou Vimeo, opcional)</em></span>
+                <input type="url" name="video" placeholder="https://...">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                <span>Conta a tua história</span>
+                <textarea name="historia" rows="6"
+                  placeholder="Descreve o sinistro, o comportamento da seguradora e o que mais te marcou..." required></textarea>
+              </label>
+            </div>
+            <div class="form-checks">
+              <label class="form-check">
+                <input type="checkbox" required>
+                <span>Declaro sob compromisso de honra a transparência e o rigor das informações.</span>
+              </label>
+              <label class="form-check">
+                <input type="checkbox" required>
+                <span>Concordo com os <a href="termos-condicoes.html">termos e condições</a>.</span>
+              </label>
+            </div>
+            <button type="submit" class="btn-yellow share-submit">Enviar a minha história</button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -59,8 +249,43 @@
   <div id="footer-slot"></div>
   <div id="chat-slot"></div>
 
-  <script src="components.js" defer></script>
-  <script src="index.js" defer></script>
+  <script src="components.js?v=4" defer></script>
+  <script src="index.js?v=4" defer></script>
+
+  <script>
+    // Tabs do Observatório — alternância de painéis + sync com URL hash
+    (function initObsTabs() {
+      const tabs = document.querySelectorAll('.obs-tab');
+      const panels = document.querySelectorAll('.obs-panel');
+      if (!tabs.length || !panels.length) return;
+
+      function activate(name) {
+        tabs.forEach(t => {
+          const active = t.dataset.tab === name;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        panels.forEach(p => {
+          const active = p.id === 'panel-' + name;
+          p.classList.toggle('is-active', active);
+          if (active) p.removeAttribute('hidden');
+          else p.setAttribute('hidden', '');
+        });
+      }
+
+      tabs.forEach(t => t.addEventListener('click', () => {
+        const name = t.dataset.tab;
+        activate(name);
+        history.replaceState(null, '', '#' + name);
+      }));
+
+      // Ativar tab da URL hash (?#historias, #partilhar)
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById('panel-' + hash)) {
+        activate(hash);
+      }
+    })();
+  </script>
 </body>
 
 </html>
