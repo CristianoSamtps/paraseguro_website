@@ -158,6 +158,62 @@ if (stepsInteractive) {
     });
 }
 
+// Hero alternativo — carrossel de imagens com bullets verticais
+(function initHeroAltSlider() {
+    const heroAlt = document.querySelector('.hero-alt');
+    if (!heroAlt) return;
+    const slides = [...heroAlt.querySelectorAll('.hero-alt-slide')];
+    const dots = [...heroAlt.querySelectorAll('.hero-alt-dot')];
+    if (slides.length < 2) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const INTERVAL_MS = 6500;
+    let current = 0;
+    let timer = null;
+
+    function go(idx) {
+        if (idx === current) return;
+        slides[current].classList.remove('is-active');
+        dots[current]?.classList.remove('is-active');
+        dots[current]?.removeAttribute('aria-current');
+        current = (idx + slides.length) % slides.length;
+        slides[current].classList.add('is-active');
+        dots[current]?.classList.add('is-active');
+        dots[current]?.setAttribute('aria-current', 'true');
+        heroAlt.dataset.activeSlide = String(current);
+    }
+
+    function next() { go(current + 1); }
+
+    function start() {
+        if (reduceMotion) return;
+        stop();
+        timer = window.setInterval(next, INTERVAL_MS);
+    }
+
+    function stop() {
+        if (timer) { window.clearInterval(timer); timer = null; }
+    }
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const idx = parseInt(dot.dataset.go, 10);
+            if (!Number.isNaN(idx)) {
+                go(idx);
+                start();
+            }
+        });
+    });
+
+    heroAlt.addEventListener('mouseenter', stop);
+    heroAlt.addEventListener('mouseleave', start);
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stop(); else start();
+    });
+
+    start();
+})();
+
 // Scroll reveal — entrada subtil dos blocos à medida que entram na viewport
 (function initScrollReveal() {
     // Respeitar preferência de reduced motion
