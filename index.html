@@ -8,410 +8,486 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="styles.css">
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- ═══════ SCROLL PROTECTION INDICATOR ═══════ -->
-  <aside class="scroll-shield" id="scrollShield" aria-hidden="true">
-    <span class="scroll-shield-label scroll-shield-label-top">Sem<br>proteção</span>
-    <div class="scroll-shield-track">
-      <div class="scroll-shield-fill" id="scrollShieldFill"></div>
-      <div class="scroll-shield-marker" id="scrollShieldMarker">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-        </svg>
-      </div>
-    </div>
-    <span class="scroll-shield-label scroll-shield-label-bottom">Protegido</span>
-  </aside>
-
-  <!-- ═══════ NAV ═══════ -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="nav-brand">
-        <div class="nav-logo">
-          <h1><a href="https://paraseguro.pt/">PARASEGURO</a></h1>
-        </div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#">Conceito</a></li>
-        <li><a href="#">Observatório</a></li>
-        <li><a href="#">Recrutamento</a></li>
-      </ul>
-      <div class="nav-actions">
-        <a href="#" class="nav-assist" aria-label="Pedir assistência 24 horas">
-          <svg class="nav-assist-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <span class="nav-assist-text">Assistência <strong>24h</strong></span>
-        </a>
-        <a href="planos.html" class="nav-cta">ESCOLHE O TEU PARASEGURO</a>
-      </div>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div class="nav-mobile" id="navMobile">
-      <ul class="nav-mobile-links">
-        <li><a href="#">Conceito</a></li>
-        <li><a href="#">Observatório</a></li>
-        <li><a href="#">Recrutamento</a></li>
-      </ul>
-      <div class="nav-mobile-actions">
-        <a href="planos.html" class="nav-cta">ESCOLHE O TEU PARASEGURO</a>
-        <a href="#" class="nav-assist nav-assist-mobile" aria-label="Pedir assistência 24 horas">
-          <svg class="nav-assist-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <span class="nav-assist-text">Assistência <strong>24h</strong></span>
-        </a>
-      </div>
-    </div>
-  </nav>
+  <!-- Componentes partilhados (ver components.js) -->
+  <div id="scroll-shield-slot"></div>
+  <div id="nav-slot"></div>
 
   <!-- ═══════ HERO ═══════ -->
   <section class="hero">
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <div class="hero-eyebrow-dot"></div>
-        <span>Proteção independente</span>
-      </div>
-      <h1 class="hero-title">O seguro não decide</h1>
-      <span class="hero-title-accent">por ti.</span>
-      <p class="hero-subhead">Geriamos o teu sinistro do início ao fim — peritos próprios, prazos cumpridos, indemnizações sem cortes.</p>
-      <p class="hero-desc">Quando tens um sinistro, a seguradora gere tudo em seu favor. O paraseguro retira-lhe esse
-        controlo — e garante que não perdes aquilo a que tens direito.</p>
-      <div class="hero-actions">
-        <button class="btn-yellow">Ver os planos</button>
-        <button class="btn-ghost">Como funciona em 3 passos</button>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-right-blend">
-        <div class="hero-shield">
-          <div class="shield-ring-1"></div>
-          <div class="shield-ring-2"></div>
-          <div class="shield-ring-3"></div>
-          <div class="shield-core">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <path d="M9 12l2 2 4-4" />
-            </svg>
+    <div class="hero-inner max-w">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-dot"></div>
+          <span>Proteção independente</span>
+        </div>
+        <h1 class="hero-title">A seguradora protege-se.</h1>
+        <span class="hero-title-accent">Nós protegemos-te.</span>
+        <p class="hero-subhead">Especialistas independentes que defendem os teus direitos perante seguradoras, processos
+          e conflitos.</p>
+        <div class="hero-actions">
+          <button class="btn-yellow">Proteger-te por 0,60€/dia</button>
+          <button class="btn-ghost">Ver o que cobre</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value">24h</div>
+            <div class="hero-stat-label">Tempo médio resposta</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">100%</div>
+            <div class="hero-stat-label">Acompanhamento humano</div>
           </div>
         </div>
-        <div class="hero-proof-list">
-          <div class="hero-proof-item">
-            <div class="hero-proof-icon"><svg viewBox="0 0 24 24">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                <polyline points="22 4 12 14.01 9 11.01" />
-              </svg></div>
-            <div class="hero-proof-text"><strong>Gestão total</strong> do teu sinistro, do início ao fim</div>
+      </div>
+      <div class="hero-right">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="files/pexels-photo-27175882.jpeg">
+          <source src="files/paraseguro_2.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay">
+          <div class="hero-card-top">
+            <div class="hero-card-eyebrow">Proteção jurídica</div>
+            <div class="hero-card-title">Especialistas sempre do teu lado</div>
           </div>
-          <div class="hero-proof-item">
-            <div class="hero-proof-icon"><svg viewBox="0 0 24 24">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg></div>
-            <div class="hero-proof-text"><strong>Zero conflitos</strong> de interesse — só trabalhamos para ti</div>
-          </div>
-          <div class="hero-proof-item">
-            <div class="hero-proof-icon"><svg viewBox="0 0 24 24">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l7.78-7.78a5.5 5.5 0 0 0 0-7.78z" />
-              </svg></div>
-            <div class="hero-proof-text"><strong>Saúde, crédito e justiça</strong> — cobertura completa</div>
+          <div class="hero-card-bottom">
+            <div class="hero-mini-card">
+              <div class="hero-mini-value">24/7</div>
+              <div class="hero-mini-label">Acompanhamento</div>
+            </div>
+            <div class="hero-mini-card">
+              <div class="hero-mini-value">+98%</div>
+              <div class="hero-mini-label">Clientes satisfeitos</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="marquee-wrap">
-    <div class="marquee-inner">
-      <span>Saúde</span><span class="accent">·</span>
-      <span>Engenharia</span><span class="accent">·</span>
-      <span>Crédito</span><span class="accent">·</span>
-      <span>Justiça</span><span class="accent">·</span>
-      <span>Proteção pessoal</span><span class="accent">·</span>
-      <span>Estabilidade financeira</span><span class="accent">·</span>
-      <span>Rendimento garantido</span><span class="accent">·</span>
-      <span>Saúde</span><span class="accent">·</span>
-      <span>Engenharia</span><span class="accent">·</span>
-      <span>Crédito</span><span class="accent">·</span>
-      <span>Justiça</span><span class="accent">·</span>
-      <span>Proteção pessoal</span><span class="accent">·</span>
-      <span>Estabilidade financeira</span><span class="accent">·</span>
-      <span>Rendimento garantido</span><span class="accent">·</span>
+
+
+  <!-- ═══════ LOGO BAR ═══════ -->
+  <section class="logo-bar">
+    <div class="logo-bar-inner max-w">
+      <div class="logo-bar-list">
+        <div class="logo-mark">
+          <span>Resposta em menos de 24h</span>
+        </div>
+        <div class="logo-mark">
+          <span>Cobertura nacional</span>
+        </div>
+        <div class="logo-mark">
+          <span>Especialistas independentes</span>
+        </div>
+        <div class="logo-mark">
+          <span>Acompanhamento contínuo</span>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- ═══════ VERSUS ═══════ -->
-  <section class="versus">
-    <div class="section-eyebrow"><span class="badge">A diferença</span></div>
-    <h2 class="section-title">Dois cenários, <em>resultados muito diferentes.</em></h2>
-    <div class="versus-grid">
-      <div class="vs-card bad">
-        <div class="vs-tag">
-          <div class="vs-tag-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#b3c1b6"
-              stroke-width="2.5">
+  <section class="versus max-w">
+    <div class="section-eyebrow">A DIFERENÇA</div>
+    <h2 class="section-title">Dois cenários.<br> <em>Resultados muito diferentes.</em></h2>
+
+    <div class="vs-compare">
+      <div class="vs-head">
+        <div class="vs-head-cell vs-head-cell--label" aria-hidden="true"></div>
+        <div class="vs-head-cell vs-head-cell--bad">
+          <span class="vs-pill vs-pill--bad">Sem paraseguro</span>
+        </div>
+        <div class="vs-head-cell vs-head-cell--good">
+          <span class="vs-pill vs-pill--good">Com paraseguro</span>
+        </div>
+      </div>
+
+      <div class="vs-row">
+        <div class="vs-label">Quem decide</div>
+        <div class="vs-side vs-side--bad">
+          <span class="vs-mark vs-mark--x" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
-            </svg></div>
-          Sem paraseguro
+            </svg>
+          </span>
+          <span>A seguradora</span>
         </div>
-        <h3 class="vs-heading">A seguradora decide sozinha</h3>
-        <ul class="vs-list">
-          <li>Controla peritos e avaliações unilateralmente</li>
-          <li>Atrasa processos sem qualquer consequência</li>
-          <li>Minimiza indemnizações ao máximo possível</li>
-          <li>Aceitas o que oferecem ou litigas sozinho</li>
-        </ul>
-      </div>
-      <div class="vs-card good">
-        <div class="vs-tag">
-          <div class="vs-tag-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00d4aa"
-              stroke-width="2.5">
+        <div class="vs-side vs-side--good">
+          <span class="vs-mark vs-mark--v" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12" />
-            </svg></div>
-          Com paraseguro
+            </svg>
+          </span>
+          <span>Tu, com a nossa equipa</span>
         </div>
-        <h3 class="vs-heading">Especialistas exclusivamente do teu lado</h3>
-        <ul class="vs-list">
-          <li>Gestão total e especializada do teu sinistro</li>
-          <li>Advocacia ativa e permanente dos teus direitos</li>
-          <li>Proteção integral do teu património</li>
-          <li>Cobertura completa: saúde, crédito e justiça</li>
-        </ul>
+      </div>
+
+      <div class="vs-row">
+        <div class="vs-label">Peritagem</div>
+        <div class="vs-side vs-side--bad">
+          <span class="vs-mark vs-mark--x" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </span>
+          <span>Da seguradora</span>
+        </div>
+        <div class="vs-side vs-side--good">
+          <span class="vs-mark vs-mark--v" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+          <span>Independente</span>
+        </div>
+      </div>
+
+      <div class="vs-row">
+        <div class="vs-label">Prazos</div>
+        <div class="vs-side vs-side--bad">
+          <span class="vs-mark vs-mark--x" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </span>
+          <span>Indefinidos</span>
+        </div>
+        <div class="vs-side vs-side--good">
+          <span class="vs-mark vs-mark--v" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+          <span>Resposta em 24h</span>
+        </div>
+      </div>
+
+      <div class="vs-row">
+        <div class="vs-label">Indemnização</div>
+        <div class="vs-side vs-side--bad">
+          <span class="vs-mark vs-mark--x" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </span>
+          <span>Minimizada</span>
+        </div>
+        <div class="vs-side vs-side--good">
+          <span class="vs-mark vs-mark--v" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+          <span>Sem cortes</span>
+        </div>
+      </div>
+
+      <div class="vs-row">
+        <div class="vs-label">Quem te defende</div>
+        <div class="vs-side vs-side--bad">
+          <span class="vs-mark vs-mark--x" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </span>
+          <span>Ninguém</span>
+        </div>
+        <div class="vs-side vs-side--good">
+          <span class="vs-mark vs-mark--v" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+          <span>Equipa dedicada</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ CONCEITO ═══════ -->
-  <section class="conceito">
-    <div class="section-eyebrow"><span class="badge">CONCEITO</span></div>
-    <div class="conceito-grid">
-      <div>
-        <h2 class="conceito-title">A seguradora <br>defende-se.<br /><em>Quem te defende a ti?</em></h2>
-      </div>
-      <div>
-        <p class="conceito-body">Num sinistro, a seguradora controla os peritos, os prazos e o resultado — sempre em seu
-          favor. A paraseguro <strong>avoca a gestão do processo</strong>, retirando-lhe o controlo hegemónico para que
-          não percas nem um cêntimo a que tens direito.</p>
-        <div class="section-link">Saber mais sobre o conceito</div>
+  <!-- ═══════ AREAS / COBERTURA ═══════ -->
+  <section class="areas">
+    <div class="areas-inner max-w">
+      <aside class="areas-aside">
+        <div class="section-eyebrow">COBERTURA</div>
+        <h2 class="areas-title">Proteção especializada, <em>em todas as áreas críticas.</em></h2>
+        <p class="areas-body">Em vez de soluções genéricas, cada área é acompanhada por especialistas preparados para
+          defender os teus interesses.</p>
+      </aside>
+      <div class="areas-list">
+        <article class="area-card">
+          <div class="area-icon area-icon--emerald" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 12h3l2-5 4 10 2-5h7" />
+            </svg>
+          </div>
+          <span class="area-num">01</span>
+          <h3 class="area-title">Saúde & Engenharia</h3>
+          <p class="area-text">Acompanhamento médico especializado, acidentes pessoais e apoio técnico em situações
+            clínicas. Peritagem independente e análise técnica especializada em danos materiais e
+            patrimoniais.</p>
+        </article>
+        <article class="area-card">
+          <div class="area-icon area-icon--yellow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="6" width="18" height="13" rx="2.5" />
+              <path d="M3 10h18" />
+              <path d="M7 15h3" />
+            </svg>
+          </div>
+          <span class="area-num">02</span>
+          <h3 class="area-title">Crédito</h3>
+          <p class="area-text">Proteção financeira e estabilidade perante situações inesperadas ou conflitos
+            contratuais.</p>
+        </article>
+        <article class="area-card">
+          <div class="area-icon area-icon--cyan" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 3v18" />
+              <path d="M5 21h14" />
+              <path d="M6 8h12" />
+              <path d="M6 8l-3 6a3 3 0 0 0 6 0z" />
+              <path d="M18 8l-3 6a3 3 0 0 0 6 0z" />
+            </svg>
+          </div>
+          <span class="area-num">03</span>
+          <h3 class="area-title">Justiça</h3>
+          <p class="area-text">Advocacia ativa e permanente dos teus direitos perante seguradoras e processos
+            litigiosos.</p>
+        </article>
+        <article class="area-card">
+          <div class="area-icon area-icon--emerald-deep" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 21s-7-4-7-10V5l7-2 7 2v6c0 6-7 10-7 10z" />
+              <path d="M9 11.5l2 2 4-4" />
+            </svg>
+          </div>
+          <span class="area-num">04</span>
+          <h3 class="area-title">Proteção civil & Bem estar</h3>
+          <p class="area-text">Responsabilidades legais ativadas automaticamente sobre as vigentes, sem burocracia
+            adicional. Apoio ao teu ativo profissional, familiar e social em caso de sinistro de qualquer
+            natureza.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ PULLQUOTE ═══════ -->
-  <section class="pullquote">
-    <div class="pullquote_left">
-      <div class="pq-shield">
-        <div class="shield-ring-1"></div>
-        <div class="shield-ring-2"></div>
-        <div class="shield-ring-3"></div>
-        <div class="shield-core">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            <path d="M9 12l2 2 4-4" />
-          </svg>
-        </div>
-      </div>
-      <img src="files/pexels-photo-5445223_v2.jpg" alt="ecos da sociedade">
-    </div>
-    <div class="pullquote_right">
-      <div class="card-top">
-        <span class="badge">ECOS DA SOCIEDADE</span>
-        <h2 class="pq-1-title">Está nas tuas mãos.</h2>
-        <h2 class="pq-2-title">Teres os teus próprios serviços de assistência é fundamental para não acabares em apuros
-          às mãos dos seguros</h2>
-      </div>
-      <div class="card-actions">
-        <button class="btn-pq">↗ &nbsp; Conhecer ofertas</button>
-        <span class="pq-content">Planos de paraproteção</span>
-      </div>
-    </div>
-  </section>
 
   <!-- ═══════ COMO FUNCIONA ═══════ -->
-  <section class="how-section" id="comoFunciona">
-    <div class="section-eyebrow"><span class="badge">Como funciona</span></div>
-    <h2 class="section-title">O paraseguro <em>age por ti</em> em cada fase.</h2>
-  </section>
+  <section class="how" id="comoFunciona">
+    <div class="how-inner max-w">
+      <div class="section-eyebrow">COMO FUNCIONA</div>
+      <h2 class="section-title">O paraseguro <em>age por ti</em> em cada fase.</h2>
 
-  <section class="how-section-2" id="comoFunciona">
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-number">01 <div class="step-chip">Ativação imediata</div>
-        </div>
-        <div class="step-title">Tens um sinistro — acionamos tudo</div>
-        <p class="step-text">Logo que nos contactas, a equipa avoca a gestão do processo e retira à seguradora o
-          controlo hegemónico da situação.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number">02 <div class="step-chip">Gestão especializada</div>
-        </div>
-        <div class="step-title">Profissionais tratam de tudo por ti</div>
-        <p class="step-text">Saúde, engenharia, crédito, justiça — cada área tem especialistas a trabalhar
-          exclusivamente no teu interesse.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number">03 <div class="step-chip">Proteção total</div>
+      <div class="steps-interactive" data-active="0">
+        <div class="steps-list">
+          <button class="step-item is-active" type="button" data-step="0" aria-expanded="true">
+            <div class="step-item-head">
+              <span class="step-item-num">01</span>
+              <span class="step-item-title">Ativação imediata</span>
+              <span class="step-item-chev" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </span>
+            </div>
+            <div class="step-item-body">
+              <p>Tens um sinistro — acionamos tudo</p>
+              <p>Logo que nos contactas, a equipa avoca a gestão do processo e retira à seguradora o controlo hegemónico
+                da situação.</p>
+            </div>
+          </button>
+
+          <button class="step-item" type="button" data-step="1" aria-expanded="false">
+            <div class="step-item-head">
+              <span class="step-item-num">02</span>
+              <span class="step-item-title">Gestão especializada</span>
+              <span class="step-item-chev" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </span>
+            </div>
+            <div class="step-item-body">
+              <p>Profissionais tratam de tudo por ti</p>
+              <p>Saúde, engenharia, crédito, justiça — cada área tem especialistas a trabalhar exclusivamente no teu
+                interesse.</p>
+            </div>
+          </button>
+
+          <button class="step-item" type="button" data-step="2" aria-expanded="false">
+            <div class="step-item-head">
+              <span class="step-item-num">03</span>
+              <span class="step-item-title">Proteção total</span>
+              <span class="step-item-chev" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </span>
+            </div>
+            <div class="step-item-body">
+              <p>Não perdes aquilo a que tens direito</p>
+              <p>Proteção civil automática sobre responsabilidades vigentes. Ninguém te pode privar de nada
+                arbitrariamente.</p>
+            </div>
+          </button>
+
+          <div class="steps-cta">
+            <a href="#" class="btn-yellow steps-cta-btn">
+              Pedir assistência
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <div class="step-title">Não perdes aquilo a que tens direito</div>
-        <p class="step-text">Proteção civil automática sobre responsabilidades vigentes. Ninguém te pode privar de nada
-          arbitrariamente.</p>
+        <div class="steps-media">
+          <div class="step-media is-active" data-step="0">
+            <div class="step-media-img step-media-img--tall" style="background-image:url('files/step1-tall.jpeg')"
+              role="img" aria-label="Pessoa a fazer uma chamada"></div>
+            <div class="step-media-img step-media-img--wide" style="background-image:url('files/step1-wide.jpeg')"
+              role="img" aria-label="Cliente em contacto telefónico e a tomar notas"></div>
+          </div>
+          <div class="step-media" data-step="1">
+            <div class="step-media-img step-media-img--tall" style="background-image:url('files/step2-tall.jpeg')"
+              role="img" aria-label="Mãos a assinar um documento"></div>
+            <div class="step-media-img step-media-img--wide" style="background-image:url('files/step2-wide.jpeg')"
+              role="img" aria-label="Equipa de especialistas em reunião"></div>
+          </div>
+          <div class="step-media" data-step="2">
+            <div class="step-media-img step-media-img--tall" style="background-image:url('files/step3-tall.jpeg')"
+              role="img" aria-label="Família abraçada"></div>
+            <div class="step-media-img step-media-img--wide" style="background-image:url('files/step3-wide.jpeg')"
+              role="img" aria-label="Família tranquila e protegida em casa"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ═══════ AREAS ═══════ -->
-  <section class="areas-section">
-    <div class="section-eyebrow"><span class="badge">Áreas de atuação</span></div>
-    <h2 class="section-title">Cobertura completa, <em>em cada domínio.</em></h2>
-    <div class="areas-grid">
-      <div class="area-card">
-        <div class="area-icon"><svg viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </svg></div>
-        <h4>Saúde</h4>
-        <p>Assistência médica especializada em sinistros de saúde e acidentes pessoais</p>
-      </div>
-      <div class="area-card">
-        <div class="area-icon"><svg viewBox="0 0 24 24">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg></div>
-        <h4>Engenharia</h4>
-        <p>Peritagem independente e gestão técnica de danos materiais e patrimoniais</p>
-      </div>
-      <div class="area-card">
-        <div class="area-icon"><svg viewBox="0 0 24 24">
-            <line x1="12" y1="1" x2="12" y2="23"></line>
-            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-          </svg></div>
-        <h4>Crédito</h4>
-        <p>Proteção financeira, estabilidade e preservação do teu património pessoal</p>
-      </div>
-      <div class="area-card">
-        <div class="area-icon"><svg viewBox="0 0 24 24">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg></div>
-        <h4>Proteção civil</h4>
-        <p>Responsabilidades legais ativadas automaticamente sobre as vigentes</p>
-      </div>
-      <div class="area-card">
-        <div class="area-icon"><svg viewBox="0 0 24 24">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg></div>
-        <h4>Justiça</h4>
-        <p>Advocacia ativa e permanente dos teus direitos perante a seguradora</p>
-      </div>
-      <div class="area-card">
-        <div class="area-icon"><svg viewBox="0 0 24 24">
-            <path
-              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l7.78-7.78a5.5 5.5 0 0 0 0-7.78z">
-            </path>
-          </svg></div>
-        <h4>Bem-estar</h4>
-        <p>Apoio ao teu ativo profissional, familiar e social em caso de sinistro</p>
+  <!-- ═══════ FAQ ═══════ -->
+  <section class="faq">
+    <div class="faq-inner max-w">
+      <aside class="faq-aside">
+        <div class="section-eyebrow">PERGUNTAS FREQUENTES</div>
+        <h2 class="faq-title">Tudo o que precisas <em>de saber.</em></h2>
+        <p class="faq-body">Se tiveres mais alguma dúvida, fala connosco diretamente — respondemos em menos de 24h.</p>
+        <a href="#" class="faq-link">Falar com a equipa →</a>
+      </aside>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>O que é o paraseguro?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>O paraseguro é um serviço de proteção independente que avoca a gestão dos teus sinistros perante as
+              seguradoras. Não somos uma seguradora — somos a equipa que trabalha exclusivamente do teu lado para
+              garantir
+              que recebes aquilo a que tens direito.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Tenho de cancelar o meu seguro atual?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Não. O paraseguro funciona <strong>em paralelo</strong> com a tua seguradora. Manténs todas as coberturas
+              que já tens — nós entramos quando precisas de alguém a defender os teus interesses no processo de
+              sinistro.
+            </p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Quanto custa?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>A partir de <strong>0,60€/dia</strong>. O preço final depende do plano que escolheres e do número de
+              pessoas
+              cobertas. Filhos e dependentes entram sem pagar nada nos planos familiares.</p>
+            <a href="planos.html" class="faq-inline-link">Ver planos e simular preço →</a>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Em que situações posso acionar o serviço?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Em qualquer sinistro que envolva uma seguradora: saúde, automóvel, habitação, crédito, responsabilidade
+              civil, justiça. Basta contactar-nos e a equipa avoca de imediato a gestão do processo.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Quanto tempo demora a resposta?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Tempo médio de resposta inferior a 24h. A linha de assistência funciona 24/7 para ativação imediata em
+              situações urgentes.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Posso cancelar quando quiser?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Sim. Sem permanência e sem custos de cancelamento. Cancelas online a qualquer momento e manténs a
+              proteção
+              até ao final do período já pago.</p>
+          </div>
+        </details>
       </div>
     </div>
   </section>
 
   <!-- ═══════ CTA ═══════ -->
-  <section class="cta-section">
-    <div class="cta-ring-1"></div>
-    <div class="cta-ring-2"></div>
-    <div class="cta-eyebrow">Reescreve a tua proteção</div>
-    <h2 class="cta-title">Seguro, é o teu<br /><em>paraseguro.</em></h2>
-    <p class="cta-sub">Escolhe o nível de proteção que mereces — sem que o seguro te prive, arbitrariamente, de nada.</p>
-    <button class="cta-btn">Escolhe o teu paraseguro</button>
-    <p class="cta-legal">Ou descobre mais junto dos nossos comerciais.</p>
+  <section class="cta-section max-w">
+    <div class="cta-eyebrow">PROTEÇÃO INTELIGENTE</div>
+    <h2 class="cta-title">Não enfrentes <br>seguradoras sozinho.</h2>
+    <p class="cta-sub">Descobre como a Paraseguro pode proteger os teus interesses com acompanhamento especializado.
+    </p>
+    <div class="cta-actions">
+      <a href="planos.html" class="cta-btn">Falar com um especialista</a>
+      <a href="#" class="cta-btn-ghost">Pedir análise gratuita</a>
+    </div>
   </section>
 
-  <!-- ═══════ FOOTER ═══════ -->
-  <footer>
-    <div class="inner">
+  <!-- Componentes partilhados -->
+  <div id="footer-slot"></div>
+  <div id="chat-slot"></div>
 
-      <!-- Linha 1: Logo + scroll ao topo -->
-      <div class="footer-top">
-        <div class="footer-logo">
-          <h1><a href="https://paraseguro.pt/">PARASEGURO</a></h1>
-        </div>
-        <button class="footer-scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="18 15 12 9 6 15"></polyline>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Linha 2: Links nav + CTA -->
-      <div class="footer-mid">
-        <div class="footer-links">
-          <a href="#">Institucional</a>
-          <a href="#">Contacto</a>
-        </div>
-        <button class="footer-cta-btn">ACIONAR A MINHA ASSISTÊNCIA</button>
-      </div>
-
-      <!-- Linha 3: Redes sociais -->
-      <div class="footer-social">
-        <div class="footer-social-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-          </svg>
-        </div>
-        <div class="footer-social-icon">
-          <svg viewBox="0 0 24 24">
-            <rect x="2" y="2" width="20" height="20" rx="5" />
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-          </svg>
-        </div>
-        <div class="footer-social-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.12a8.16 8.16 0 0 0 4.77 1.52V7.22a4.85 4.85 0 0 1-1-.53z" />
-          </svg>
-        </div>
-      </div>
-
-      <!-- Separador -->
-      <hr class="footer-divider">
-
-      <!-- Linha 4: Links legais + badge -->
-      <div class="footer-bottom">
-        <div class="footer-bottom-left">
-          <div class="footer-legal-links">
-            <a href="#">Termos e Condições de Uso</a>
-            <a href="#">Observatório</a>
-            <a href="#">Provedoria</a>
-            <a href="#">Diferendos de Consumo</a>
-            <a href="#">Livro de Reclamações</a>
-            <a href="#">Parceiros</a>
-          </div>
-          <div class="footer-copy">2026 © PARASEGURO. Todos os direitos reservados.</div>
-        </div>
-        <div class="footer-gsb">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <path d="M9 12l2 2 4-4"/>
-          </svg>
-          <div class="footer-gsb-text">
-            <span class="gsb-brand">Google</span>
-            <span class="gsb-sub">Safe Browsing</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-  <script src="index.js"></script>
+  <script src="components.js" defer></script>
+  <script src="index.js" defer></script>
 </body>
 
 </html>

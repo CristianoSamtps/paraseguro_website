@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paraseguro — Provedoria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Componentes partilhados (ver components.js) -->
+  <div id="scroll-shield-slot"></div>
+  <div id="nav-slot"></div>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="page-hero-inner max-w">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-dot"></div>
+          <span>Proximidade por princípio</span>
+        </div>
+        <h1 class="page-hero-title">Provedoria <em>do paraseguro.</em></h1>
+        <p class="page-hero-sub">Preocupamo-nos em manter relações de confiança e integridade com todos os agentes com
+          quem nos relacionamos.</p>
+      </div>
+    </section>
+
+    <!-- ═══════ INTRO — Proximidade por princípio ═══════ -->
+    <section class="prov-intro">
+      <div class="prov-inner max-w">
+        <h2 class="prov-title">Proximidade por princípio</h2>
+        <div class="prov-three-col">
+          <p>Preocupamo-nos em manter relações de confiança e integridade com todos os agentes com quem nos
+            relacionamos.</p>
+          <p>A Provedoria Paraseguro é a entidade que complementa o contacto de Clientes, Colaboradores e Fornecedores
+            com o universo corporativo.</p>
+          <p>Temos por função facilitar a comunicação dos diferentes interlocutores com os serviços, acompanhando o
+            tratamento e a resolução das solicitações que nos são dirigidas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ ATIVIDADE — fundo cinza ═══════ -->
+    <section class="prov-activity">
+      <div class="prov-inner max-w">
+        <h2 class="prov-title">Atividade da Provedoria</h2>
+        <div class="prov-two-col">
+          <div class="prov-col">
+            <h3>O que fazemos</h3>
+            <p><strong>Analisamos</strong> e tratamos as exposições apresentadas com rigor e celeridade.</p>
+            <p><strong>Respondemos</strong> com base na informação apurada e analisada, envolvendo os agentes internos
+              relevantes para o efeito.</p>
+            <p><strong>Recomendamos</strong> e promovemos a discussão interna sobre compromissos e expectativas dos
+              clientes, através de processos de melhoria contínua atentos os indicadores de atividade.</p>
+          </div>
+          <div class="prov-col">
+            <h3>O que não fazemos</h3>
+            <p>A Provedoria reserva-se o direito de não tramitar narrativas que revelem má-fé, falta de fundamento,
+              anónimas ou que contenham conteúdos impróprios.</p>
+            <p>Não damos seguimento a exposições que não tenham sido apresentadas previamente à Paraseguro.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ FORMULÁRIO ═══════ -->
+    <section class="prov-form-section">
+      <div class="prov-inner max-w">
+        <h2 class="prov-form-title">Apresentar exposição</h2>
+        <form class="prov-form">
+          <label class="prov-field-full">
+            <span>Nome</span>
+            <input type="text" name="nome" autocomplete="name" required>
+          </label>
+          <label>
+            <span>Telefone</span>
+            <input type="tel" name="telefone" autocomplete="tel">
+          </label>
+          <label>
+            <span>E-mail</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label class="prov-field-full">
+            <span>Mensagem</span>
+            <textarea name="mensagem" rows="6" required></textarea>
+          </label>
+          <label class="prov-check prov-field-full">
+            <input type="checkbox" required>
+            <span>Concordo com os <a href="termos-condicoes.html">termos e condições</a> de uso.</span>
+          </label>
+          <div class="prov-submit-row">
+            <button type="submit" class="btn-cyan-prov">ENVIAR</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Componentes partilhados -->
+  <div id="footer-slot"></div>
+  <div id="chat-slot"></div>
+
+  <script src="components.js" defer></script>
+  <script src="index.js" defer></script>
+</body>
+
+</html>

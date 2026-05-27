@@ -15,8 +15,18 @@ document.querySelectorAll('.nav-mobile-links a').forEach(link => {
 const scrollShield = document.getElementById('scrollShield');
 const scrollShieldFill = document.getElementById('scrollShieldFill');
 const scrollShieldMarker = document.getElementById('scrollShieldMarker');
+const scrollShieldFooter = document.querySelector('footer');
+const SCROLL_SHIELD_FOOTER_MARGIN = 60; // px de folga entre o shield e o topo do footer
 
 function updateScrollShield() {
+    // Calcular o ponto de paragem: quando o topo do footer entra na zona inferior do shield
+    const footerTopInViewport = scrollShieldFooter
+        ? scrollShieldFooter.getBoundingClientRect().top
+        : Infinity;
+    const shieldBottomInViewport = scrollShield.getBoundingClientRect().bottom;
+    const overlapsFooter = footerTopInViewport - SCROLL_SHIELD_FOOTER_MARGIN < shieldBottomInViewport;
+
+    // Progresso normal baseado no scroll do documento
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / docHeight)) : 0;
     const pct = (progress * 100).toFixed(2);
@@ -24,7 +34,8 @@ function updateScrollShield() {
     scrollShieldFill.style.height = pct + '%';
     scrollShieldMarker.style.top = pct + '%';
 
-    if (window.scrollY > 200) {
+    // Visível só quando passou do topo E o footer ainda não invadiu a zona do shield
+    if (window.scrollY > 200 && !overlapsFooter) {
         scrollShield.classList.add('visible');
     } else {
         scrollShield.classList.remove('visible');
@@ -40,6 +51,37 @@ function updateScrollShield() {
 window.addEventListener('scroll', updateScrollShield, { passive: true });
 window.addEventListener('resize', updateScrollShield);
 updateScrollShield();
+
+// Chat widget
+const chatWidget = document.getElementById('chatWidget');
+const chatBubble = document.getElementById('chatBubble');
+const chatClose = document.getElementById('chatClose');
+const chatPanel = document.getElementById('chatPanel');
+const chatForm = document.getElementById('chatForm');
+
+function setChatOpen(open) {
+    if (!chatWidget) return;
+    chatWidget.classList.toggle('open', open);
+    if (chatBubble) chatBubble.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (chatPanel) chatPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+}
+
+if (chatBubble) chatBubble.addEventListener('click', () => setChatOpen(true));
+if (chatClose) chatClose.addEventListener('click', () => setChatOpen(false));
+if (chatForm) {
+    chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Placeholder: integrar com endpoint real depois
+        chatForm.reset();
+        setChatOpen(false);
+    });
+}
+// Fecha com Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatWidget && chatWidget.classList.contains('open')) {
+        setChatOpen(false);
+    }
+});
 
 // Plans simulator (planos.html)
 const simPlans = document.querySelectorAll('.sim-plan');
@@ -91,3 +133,132 @@ if (simPlans.length && simTotalEl && simDepsEl && simMonthlyEl && simPerEl) {
 
     recalc();
 }
+
+// "Como Funciona" — accordion + media swap
+const stepsInteractive = document.querySelector('.steps-interactive');
+if (stepsInteractive) {
+    const items = stepsInteractive.querySelectorAll('.step-item');
+    const medias = stepsInteractive.querySelectorAll('.step-media');
+
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            const idx = item.dataset.step;
+            if (item.classList.contains('is-active')) return;
+
+            items.forEach(i => {
+                const active = i === item;
+                i.classList.toggle('is-active', active);
+                i.setAttribute('aria-expanded', active ? 'true' : 'false');
+            });
+            medias.forEach(m => {
+                m.classList.toggle('is-active', m.dataset.step === idx);
+            });
+            stepsInteractive.dataset.active = idx;
+        });
+    });
+}
+
+// Scroll reveal — entrada subtil dos blocos à medida que entram na viewport
+(function initScrollReveal() {
+    // Respeitar preferência de reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Selectores a animar — agrupados por contexto
+    const SELECTORS = [
+        // Headings genéricos
+        '.section-eyebrow',
+        '.section-title',
+
+        // Index — hero
+        '.hero-eyebrow',
+        '.hero-title',
+        '.hero-title-accent',
+        '.hero-subhead',
+        '.hero-actions',
+        '.hero-stats',
+        '.hero-right',
+
+        // Index — logo bar
+        '.logo-mark',
+
+        // Index — versus
+        '.vs-compare',
+        '.vs-row',
+
+        // Index — areas
+        '.areas-aside',
+        '.area-card',
+
+        // Index — como funciona
+        '.steps-interactive',
+        '.step-item',
+
+        // Index — faq
+        '.faq-aside',
+        '.faq-item',
+
+        // Index — cta final
+        '.cta-section',
+
+        // Páginas internas
+        '.page-hero-title',
+        '.page-hero-sub',
+        '.page-prose > *',
+        '.page-card',
+        '.page-form',
+
+        // Institucional
+        '.institucional-hero-eyebrow',
+        '.institucional-hero-title',
+        '.inst-subnav-link',
+        '.inst-photo',
+        '.inst-block-text',
+        '.inst-reasons-eyebrow',
+        '.inst-reason',
+        '.inst-join-col',
+        '.inst-form',
+    ];
+
+    // Grupos com stagger (delay incremental entre irmãos do mesmo tipo)
+    const STAGGER_GROUPS = [
+        { sel: '.logo-mark', step: 60 },
+        { sel: '.vs-row', step: 70 },
+        { sel: '.area-card', step: 90 },
+        { sel: '.step-item', step: 80 },
+        { sel: '.faq-item', step: 60 },
+        { sel: '.inst-subnav-link', step: 80 },
+        { sel: '.inst-reason', step: 120 },
+        { sel: '.inst-join-col', step: 120 },
+    ];
+
+    // Aplica class .reveal aos elementos encontrados (sem duplicar)
+    const targets = new Set();
+    SELECTORS.forEach(sel => {
+        document.querySelectorAll(sel).forEach(el => {
+            el.classList.add('reveal');
+            targets.add(el);
+        });
+    });
+
+    // Stagger: cada item recebe --reveal-delay baseado na sua posição no grupo
+    STAGGER_GROUPS.forEach(({ sel, step }) => {
+        document.querySelectorAll(sel).forEach((el, i) => {
+            el.style.setProperty('--reveal-delay', (i * step) + 'ms');
+        });
+    });
+
+    // IntersectionObserver — adiciona is-visible quando entra na viewport
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target); // dispara uma só vez
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -8% 0px', // dispara um pouco antes de aparecer totalmente
+        threshold: 0.05,
+    });
+
+    targets.forEach(el => io.observe(el));
+})();

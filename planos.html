@@ -14,69 +14,12 @@
 
 <body class="page-planos">
 
-  <!-- ═══════ SCROLL PROTECTION INDICATOR ═══════ -->
-  <aside class="scroll-shield" id="scrollShield" aria-hidden="true">
-    <span class="scroll-shield-label scroll-shield-label-top">Sem<br>proteção</span>
-    <div class="scroll-shield-track">
-      <div class="scroll-shield-fill" id="scrollShieldFill"></div>
-      <div class="scroll-shield-marker" id="scrollShieldMarker">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-        </svg>
-      </div>
-    </div>
-    <span class="scroll-shield-label scroll-shield-label-bottom">Protegido</span>
-  </aside>
-
-  <!-- ═══════ NAV ═══════ -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="nav-brand">
-        <div class="nav-logo">
-          <h1><a href="index.html">PARASEGURO</a></h1>
-        </div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html#conceito">Conceito</a></li>
-        <li><a href="index.html">Observatório</a></li>
-        <li><a href="planos.html" class="active">Planos</a></li>
-        <li><a href="index.html">Contacto</a></li>
-      </ul>
-      <div class="nav-actions">
-        <a href="#" class="nav-assist" aria-label="Pedir assistência 24 horas">
-          <svg class="nav-assist-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <span class="nav-assist-text">Assistência <strong>24h</strong></span>
-        </a>
-        <a href="#simulador" class="nav-cta">SIMULAR PREÇO</a>
-      </div>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div class="nav-mobile" id="navMobile">
-      <ul class="nav-mobile-links">
-        <li><a href="index.html#conceito">Conceito</a></li>
-        <li><a href="index.html">Observatório</a></li>
-        <li><a href="planos.html">Planos</a></li>
-      </ul>
-      <div class="nav-mobile-actions">
-        <a href="#simulador" class="nav-cta">SIMULAR PREÇO</a>
-        <a href="#" class="nav-assist nav-assist-mobile" aria-label="Pedir assistência 24 horas">
-          <svg class="nav-assist-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <span class="nav-assist-text">Assistência <strong>24h</strong></span>
-        </a>
-      </div>
-    </div>
-  </nav>
+  <!-- Componentes partilhados (ver components.js) -->
+  <div id="scroll-shield-slot"></div>
+  <div id="nav-slot"></div>
 
   <!-- ═══════ HERO ═══════ -->
-  <section class="planos-hero">
+  <section class="planos-hero max-w">
     <div class="planos-hero-inner">
       <div class="hero-eyebrow">
         <div class="hero-eyebrow-dot"></div>
@@ -92,7 +35,7 @@
   </section>
 
   <!-- ═══════ PLANOS GRID ═══════ -->
-  <section class="planos" id="planos">
+  <section class="planos max-w" id="planos">
     <div class="section-eyebrow"><span class="badge">Planos</span></div>
     <h2 class="section-title">Escolhe o nível de <em>proteção</em>.</h2>
     <p class="planos-intro">Todos os planos incluem assistência permanente, gestão integral do sinistro e cobertura familiar. Escolhes apenas a profundidade.</p>
@@ -185,7 +128,7 @@
   </section>
 
   <!-- ═══════ COMPARAÇÃO RÁPIDA ═══════ -->
-  <section class="planos-compare">
+  <section class="planos-compare max-w">
     <div class="section-eyebrow"><span class="badge">Comparação rápida</span></div>
     <h2 class="section-title">O que muda <em>de um plano para outro</em>.</h2>
 
@@ -242,7 +185,7 @@
   </section>
 
   <!-- ═══════ SIMULADOR ═══════ -->
-  <section class="sim-section" id="simulador">
+  <section class="sim-section max-w" id="simulador">
     <div class="sim-inner">
       <div class="sim-left">
         <div class="section-eyebrow"><span class="badge">Simulador de preços</span></div>
@@ -303,51 +246,12 @@
     </div>
   </section>
 
-  <!-- ═══════ FOOTER ═══════ -->
-  <footer>
-    <div class="inner">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <h1><a href="index.html">PARASEGURO</a></h1>
-        </div>
-        <button class="footer-scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-        </button>
-      </div>
-      <div class="footer-mid">
-        <div class="footer-links">
-          <a href="index.html">Institucional</a>
-          <a href="#">Contacto</a>
-        </div>
-        <button class="footer-cta-btn">ACIONAR A MINHA ASSISTÊNCIA</button>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-left">
-          <div class="footer-legal-links">
-            <a href="#">Termos e Condições de Uso</a>
-            <a href="#">Observatório</a>
-            <a href="#">Provedoria</a>
-            <a href="#">Diferendos de Consumo</a>
-            <a href="#">Livro de Reclamações</a>
-            <a href="#">Parceiros</a>
-          </div>
-          <div class="footer-copy">2026 © PARASEGURO. Todos os direitos reservados.</div>
-        </div>
-        <div class="footer-gsb">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <path d="M9 12l2 2 4-4"/>
-          </svg>
-          <div class="footer-gsb-text">
-            <span class="gsb-brand">Google</span>
-            <span class="gsb-sub">Safe Browsing</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- Componentes partilhados -->
+  <div id="footer-slot"></div>
+  <div id="chat-slot"></div>
 
-  <script src="index.js"></script>
+  <script src="components.js" defer></script>
+  <script src="index.js" defer></script>
 </body>
 
 </html>
