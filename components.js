@@ -287,6 +287,56 @@ const CHAT_HTML = `
 `;
 
 
+/* ═══════ CONSENTIMENTO DE COOKIES ═══════
+   Banner partilhado, injetado no fim do <body> em todas as páginas.
+   Dois estados: predefinido (Aceitar/Rejeitar) e personalizar (checkboxes).
+   Lógica + persistência (localStorage) em index.js. */
+const COOKIE_CONSENT_HTML = `
+  <aside class="cookie-consent" id="cookieConsent" role="dialog" aria-modal="false"
+    aria-labelledby="cookieConsentTitle" aria-describedby="cookieConsentText" hidden>
+    <div class="cookie-consent-card">
+      <h2 class="cookie-consent-title" id="cookieConsentTitle">Este site utiliza cookies</h2>
+      <p class="cookie-consent-text" id="cookieConsentText">
+        Utilizamos cookies e tecnologias semelhantes para assegurar o funcionamento adequado do nosso
+        site, e com a tua permissão, para otimizar a experiência de utilização. Podes
+        <button type="button" class="cookie-consent-inline" data-cookie-action="customize">personalizar o teu consentimento</button>
+        e obter mais informações, consultando a
+        <a href="termos-condicoes.html" class="cookie-consent-inline">Política de Cookies</a>.
+      </p>
+
+      <div class="cookie-consent-customize" id="cookieConsentCustomize" hidden>
+        <h3 class="cookie-consent-subtitle">Selecionar cookies para aceitar</h3>
+        <div class="cookie-consent-options">
+          <label class="cookie-consent-option">
+            <input type="checkbox" name="essential" checked disabled>
+            <span>Essenciais</span>
+          </label>
+          <label class="cookie-consent-option">
+            <input type="checkbox" name="preferences" checked>
+            <span>Preferências</span>
+          </label>
+          <label class="cookie-consent-option">
+            <input type="checkbox" name="statistics" checked>
+            <span>Estatísticas</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="cookie-consent-actions">
+        <div class="cookie-consent-actions-row" data-cookie-view="default">
+          <button type="button" class="cookie-consent-btn cookie-consent-btn--accept" data-cookie-action="accept-all">Aceitar</button>
+          <button type="button" class="cookie-consent-btn cookie-consent-btn--reject" data-cookie-action="reject-all">Rejeitar</button>
+        </div>
+        <div class="cookie-consent-actions-row" data-cookie-view="custom" hidden>
+          <button type="button" class="cookie-consent-btn cookie-consent-btn--accept" data-cookie-action="accept-selected">Aceitar</button>
+          <button type="button" class="cookie-consent-textbtn" data-cookie-action="cancel-customize">Não Personalizar</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+`;
+
+
 /* ═══════ INJECÇÃO ═══════
    Substitui cada slot pelo HTML correspondente.
    Corre antes do index.js (script com defer, ordem importa). */
@@ -300,6 +350,9 @@ injectSlot('scroll-shield-slot', SCROLL_SHIELD_HTML);
 injectSlot('nav-slot', NAV_HTML);
 injectSlot('footer-slot', FOOTER_HTML);
 injectSlot('chat-slot', CHAT_HTML);
+
+// Banner de cookies — não tem slot; injeta-se no fim do body (overlay fixo).
+document.body.insertAdjacentHTML('beforeend', COOKIE_CONSENT_HTML);
 
 
 /* ═══════ ACTIVE NAV STATE ═══════

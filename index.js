@@ -12,13 +12,13 @@ document.querySelectorAll('.nav-mobile-links a').forEach(link => {
 });
 
 // Scroll protection indicator
-const scrollShield = document.getElementById('scrollShield');
+/* const scrollShield = document.getElementById('scrollShield');
 const scrollShieldFill = document.getElementById('scrollShieldFill');
 const scrollShieldMarker = document.getElementById('scrollShieldMarker');
 const scrollShieldFooter = document.querySelector('footer');
-const SCROLL_SHIELD_FOOTER_MARGIN = 60; // px de folga entre o shield e o topo do footer
+const SCROLL_SHIELD_FOOTER_MARGIN = 60; // px de folga entre o shield e o topo do footer */
 
-function updateScrollShield() {
+/* function updateScrollShield() {
     // Calcular o ponto de paragem: quando o topo do footer entra na zona inferior do shield
     const footerTopInViewport = scrollShieldFooter
         ? scrollShieldFooter.getBoundingClientRect().top
@@ -50,7 +50,7 @@ function updateScrollShield() {
 
 window.addEventListener('scroll', updateScrollShield, { passive: true });
 window.addEventListener('resize', updateScrollShield);
-updateScrollShield();
+updateScrollShield(); */
 
 // Chat widget
 const chatWidget = document.getElementById('chatWidget');
@@ -140,20 +140,29 @@ if (stepsInteractive) {
     const items = stepsInteractive.querySelectorAll('.step-item');
     const medias = stepsInteractive.querySelectorAll('.step-media');
 
-    items.forEach(item => {
-        item.addEventListener('click', () => {
-            const idx = item.dataset.step;
-            if (item.classList.contains('is-active')) return;
+    function activateStep(item) {
+        const idx = item.dataset.step;
+        if (item.classList.contains('is-active')) return;
 
-            items.forEach(i => {
-                const active = i === item;
-                i.classList.toggle('is-active', active);
-                i.setAttribute('aria-expanded', active ? 'true' : 'false');
-            });
-            medias.forEach(m => {
-                m.classList.toggle('is-active', m.dataset.step === idx);
-            });
-            stepsInteractive.dataset.active = idx;
+        items.forEach(i => {
+            const active = i === item;
+            i.classList.toggle('is-active', active);
+            i.setAttribute('aria-expanded', active ? 'true' : 'false');
+        });
+        medias.forEach(m => {
+            m.classList.toggle('is-active', m.dataset.step === idx);
+        });
+        stepsInteractive.dataset.active = idx;
+    }
+
+    items.forEach(item => {
+        item.addEventListener('click', () => activateStep(item));
+        // role="button" não tem ativação nativa por teclado — adicionamos Enter/Espaço
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                activateStep(item);
+            }
         });
     });
 }
@@ -213,6 +222,109 @@ if (stepsInteractive) {
 
     start();
 })();
+
+// Offer card — carrossel das áreas em mobile (scroll-snap + dots gerados)
+(function initOfferCarousel() {
+    const grid = document.querySelector('.offer-card-grid');
+    const dotsWrap = document.querySelector('.offer-card-dots');
+    if (!grid || !dotsWrap) return;
+
+    const items = [...grid.querySelectorAll('.offer-item')];
+    if (items.length < 2) return;
+
+    // Criar um dot por área
+    const dots = items.map((item, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'offer-card-dot' + (i === 0 ? ' is-active' : '');
+        const label = item.querySelector('.offer-item-title')?.textContent.trim() || ('Área ' + (i + 1));
+        dot.setAttribute('aria-label', label);
+        dot.addEventListener('click', () => {
+            // scrollIntoView dentro do container sem mexer no scroll vertical da página
+            grid.scrollTo({ left: item.offsetLeft - grid.offsetLeft, behavior: 'smooth' });
+        });
+        dotsWrap.appendChild(dot);
+        return dot;
+    });
+
+    function setActive(idx) {
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+    }
+
+    // Atualizar o dot ativo conforme o item mais visível no scroll horizontal
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+                    setActive(items.indexOf(entry.target));
+                }
+            });
+        }, { root: grid, threshold: [0.6] });
+        items.forEach(item => io.observe(item));
+    }
+})();
+
+
+// Home stories — acordeão vertical em mobile (1 destacada com tudo; outras só título; tap p/ destacar)
+(function initHomeStoriesAccordion() {
+    const grid = document.querySelector('.home-stories-grid');
+    if (!grid) return;
+    const cards = [...grid.querySelectorAll('.story-card')];
+    if (cards.length < 2) return;
+    const mq = window.matchMedia('(max-width: 767px)');
+    function setOpen(card) {
+        cards.forEach(c => c.classList.toggle('is-open', c === card));
+    }
+    function sync() {
+        if (mq.matches) {
+            if (!grid.querySelector('.story-card.is-open')) setOpen(cards[0]);
+        } else {
+            cards.forEach(c => c.classList.remove('is-open'));
+        }
+    }
+    sync();
+    mq.addEventListener('change', sync);
+    cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            if (!mq.matches) return;                 // desktop → navega normalmente
+            if (!card.classList.contains('is-open')) {
+                e.preventDefault();                  // 1º toque numa pequena → só destaca
+                setOpen(card);
+            }
+            // se já destacada → não bloqueia → segue o link
+        });
+    });
+})();
+
+
+// Logo-bar — carrossel automático infinito em mobile (clona os items p/ loop contínuo)
+(function initLogoMarquee() {
+    const list = document.querySelector('.logo-bar-list');
+    if (!list) return;
+    const originals = [...list.children];
+    if (!originals.length) return;
+    const mq = window.matchMedia('(max-width: 767px)');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function sync() {
+        const on = mq.matches && !reduce.matches;
+        if (on && !list.classList.contains('is-marquee')) {
+            originals.forEach(node => {
+                const clone = node.cloneNode(true);
+                clone.classList.add('logo-mark--clone');
+                clone.setAttribute('aria-hidden', 'true');
+                list.appendChild(clone);
+            });
+            list.classList.add('is-marquee');
+        } else if (!on && list.classList.contains('is-marquee')) {
+            list.querySelectorAll('.logo-mark--clone').forEach(c => c.remove());
+            list.classList.remove('is-marquee');
+        }
+    }
+    sync();
+    mq.addEventListener('change', sync);
+    reduce.addEventListener('change', sync);
+})();
+
 
 // Scroll reveal — entrada subtil dos blocos à medida que entram na viewport
 (function initScrollReveal() {
@@ -317,4 +429,56 @@ if (stepsInteractive) {
     });
 
     targets.forEach(el => io.observe(el));
+})();
+
+// Consentimento de cookies (banner partilhado — components.js)
+(function initCookieConsent() {
+    const STORAGE_KEY = 'paraseguro_cookie_consent';
+    const banner = document.getElementById('cookieConsent');
+    if (!banner) return;
+
+    const customizePanel = document.getElementById('cookieConsentCustomize');
+    const defaultActions = banner.querySelector('[data-cookie-view="default"]');
+    const customActions = banner.querySelector('[data-cookie-view="custom"]');
+
+    function hasConsent() {
+        try { return !!localStorage.getItem(STORAGE_KEY); }
+        catch (e) { return false; }
+    }
+
+    function save(consent) {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...consent, ts: Date.now() }));
+        } catch (e) { /* localStorage indisponível — ignora silenciosamente */ }
+    }
+
+    function setCustomizeView(on) {
+        if (customizePanel) customizePanel.hidden = !on;
+        if (defaultActions) defaultActions.hidden = on;
+        if (customActions) customActions.hidden = !on;
+    }
+
+    function readSelected() {
+        const pref = banner.querySelector('input[name="preferences"]');
+        const stat = banner.querySelector('input[name="statistics"]');
+        return {
+            essential: true,
+            preferences: !!(pref && pref.checked),
+            statistics: !!(stat && stat.checked),
+        };
+    }
+
+    banner.addEventListener('click', (e) => {
+        const trigger = e.target.closest('[data-cookie-action]');
+        if (!trigger) return; // ex.: link "Política de Cookies" navega normalmente
+        const action = trigger.dataset.cookieAction;
+
+        if (action === 'customize') { setCustomizeView(true); }
+        else if (action === 'cancel-customize') { setCustomizeView(false); }
+        else if (action === 'accept-all') { save({ essential: true, preferences: true, statistics: true }); banner.hidden = true; }
+        else if (action === 'reject-all') { save({ essential: true, preferences: false, statistics: false }); banner.hidden = true; }
+        else if (action === 'accept-selected') { save(readSelected()); banner.hidden = true; }
+    });
+
+    if (!hasConsent()) banner.hidden = false;
 })();
